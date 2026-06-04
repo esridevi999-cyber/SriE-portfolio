@@ -255,6 +255,7 @@ function openPwdModal(target) {
 function closePwdModal() {
   document.getElementById('pwdModal').classList.remove('active');
   pendingTarget = null;
+  resetPwdModal();
 }
 
 async function submitPwd() {
@@ -264,16 +265,25 @@ async function submitPwd() {
   if (hashed === window.__ownerHash) {
     const t = pendingTarget;
     closePwdModal();
-    // Detach from current call stack completely before opening file picker
-    setTimeout(() => {
-      if (t === 'profile') document.getElementById('profileInput').click();
-      if (t === 'gallery') document.getElementById('galleryInput').click();
-    }, 100);
+    // Use a real anchor-based trigger — most compatible across all browsers/devices
+    const inputId = t === 'profile' ? 'profileInput' : 'galleryInput';
+    const input = document.getElementById(inputId);
+    // Create a visible temporary trigger button and click it as a real user gesture
+    const trigger = document.createElement('label');
+    trigger.setAttribute('for', inputId);
+    trigger.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;background:transparent;width:1px;height:1px;overflow:hidden;';
+    document.body.appendChild(trigger);
+    trigger.click();
+    setTimeout(() => trigger.remove(), 500);
   } else {
     document.getElementById('pwdError').classList.add('show');
     document.getElementById('pwdInput').value = '';
     document.getElementById('pwdInput').focus();
   }
+}
+
+function resetPwdModal() {
+  // nothing to reset now
 }
 
 function toggleEye() {
@@ -287,41 +297,62 @@ function toggleEye() {
 // SUPABASE STORAGE
 // ============================================================
 async function uploadToSupabase(bucket, path, file) {
-  // Use FormData to avoid CORS preflight issues in sandboxed environments
-  const formData = new FormData();
-  formData.append('', file, path);
+  const url = `${STORAGE}/object/${bucket}/${path}`;
+  console.log("Starting upload to:", url);
+  console.log("File:", file.name, file.type, file.size, "bytes");
 
-  let res = await fetch(`${STORAGE}/object/${bucket}/${path}`, {
-    method: 'POST',
-    headers: {
-      'apikey': CONFIG.SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${CONFIG.SUPABASE_ANON_KEY}`,
-      'x-upsert': 'true'
-      // No Content-Type header — browser sets it automatically with FormData boundary
-    },
-    body: file  // send raw file body, let browser handle content-type
+  // Convert file to base64 data URL, then to Blob — most compatible method
+  const dataUrl = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error("FileReader failed"));
+    reader.readAsDataURL(file);
   });
 
-  // If already exists, overwrite with PUT
-  if (res.status === 409 || res.status === 400) {
-    res = await fetch(`${STORAGE}/object/${bucket}/${path}`, {
-      method: 'PUT',
-      headers: {
-        'apikey': CONFIG.SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${CONFIG.SUPABASE_ANON_KEY}`,
-        'x-upsert': 'true',
-        'Content-Type': file.type
-      },
-      body: file
-    });
-  }
+  // Convert base64 back to binary Blob
+  const base64 = dataUrl.split(",")[1];
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  const blob = new Blob([bytes], { type: file.type || "image/jpeg" });
 
-  if (!res.ok) {
-    const errText = await res.text();
-    console.error(`Upload failed [${res.status}]:`, errText);
-    throw new Error(`Upload failed: ${res.status}`);
+  console.log("Blob ready, size:", blob.size, "type:", blob.type);
+
+  const headers = {
+    "apikey": CONFIG.SUPABASE_ANON_KEY,
+    "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`,
+    "Content-Type": blob.type,
+    "x-upsert": "true"
+  };
+
+  try {
+    let res = await fetch(url, { method: "POST", headers, body: blob });
+    console.log("POST response status:", res.status);
+    if (!res.ok && (res.status === 409 || res.status === 400)) {
+      res = await fetch(url, { method: "PUT", headers, body: blob });
+      console.log("PUT response status:", res.status);
+    }
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error(`Upload failed [${res.status}]:`, errText);
+      throw new Error(`Upload failed ${res.status}: ${errText}`);
+    }
+    const publicUrl = `${CONFIG.SUPABASE_URL}/storage/v1/object/public/${bucket}/${path}`;
+    console.log("Upload success! URL:", publicUrl);
+    return publicUrl;
+  } catch(fetchErr) {
+    console.error("Fetch error details:", fetchErr.name, fetchErr.message);
+    // Test if Supabase is reachable at all
+    try {
+      const ping = await fetch(`${CONFIG.SUPABASE_URL}/storage/v1/bucket`, {
+        headers: { "apikey": CONFIG.SUPABASE_ANON_KEY, "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}` }
+      });
+      console.log("Supabase ping status:", ping.status);
+    } catch(pingErr) {
+      console.error("Supabase unreachable:", pingErr.message);
+    }
+    throw fetchErr;
   }
-  return `${STORAGE}/object/public/${bucket}/${path}`;
 }
 
 async function listSupabaseFiles(bucket) {
@@ -422,6 +453,8 @@ async function loadGalleryFallback() {
     console.log('Gallery could not be loaded:', e);
   }
 }
+
+async function uploadGallery(e) {
   const files = Array.from(e.target.files);
   e.target.value = '';
   if (!files.length) return;
@@ -658,10 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="font-size:.72rem;color:var(--gold);background:rgba(201,168,76,0.15);border:1px solid var(--border);padding:5px 14px;border-radius:3px;pointer-events:none">Click to Upload New</div>
           </div>
         </div>
-        <!-- Hidden file inputs -->
-        <input type="file" id="profileInput" accept="image/*" style="display:none" onchange="uploadProfilePic(event)"/>
-        <input type="file" id="galleryInput" accept="image/*" multiple style="display:none" onchange="uploadGallery(event)"/>
-        <input type="file" id="qrUpload"     accept="image/*" style="display:none" onchange="uploadQR(event)"/>
+
       </div>
     </div>
   </div>
@@ -990,6 +1020,10 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </div>
+<!-- Hidden file inputs — must be at body level for label trigger to work cross-browser -->
+<input type="file" id="profileInput" accept="image/*" style="display:none" onchange="uploadProfilePic(event)"/>
+<input type="file" id="galleryInput" accept="image/*" multiple style="display:none" onchange="uploadGallery(event)"/>
+<input type="file" id="qrUpload"     accept="image/*" style="display:none" onchange="uploadQR(event)"/>
 
 </body>
 </html>
