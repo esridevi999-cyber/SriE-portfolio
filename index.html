@@ -364,20 +364,64 @@ function showProfileImg(url) {
   document.getElementById('profileImgWrap').style.display = 'block';
 }
 
+// ============================================================
+// SUPABASE STORAGE — load using direct public URLs (no fetch needed)
+// ============================================================
+const PUBLIC_URL = `${CONFIG.SUPABASE_URL}/storage/v1/object/public`;
+
 async function loadProfileFromSupabase() {
-  try {
-    const files = await listSupabaseFiles('profile');
-    const photo = files.find(f => f.name === 'profile-photo');
-    if (photo) showProfileImg(photo.src + '?t=' + Date.now());
-  } catch(e) { console.log('No profile photo yet'); }
+  // Direct public URL — no fetch/CORS needed, works like a normal image src
+  const url = `${PUBLIC_URL}/profile/profile-photo?t=${Date.now()}`;
+  const img = new Image();
+  img.onload = () => showProfileImg(url);
+  img.onerror = () => console.log('No profile photo yet');
+  img.src = url;
 }
 
-// ============================================================
-// GALLERY
-// ============================================================
-let galleryPhotos = [];
+async function loadGalleryFromSupabase() {
+  // List files via Supabase REST API
+  try {
+    const res = await fetch(`${STORAGE}/object/list/gallery`, {
+      method: 'POST',
+      headers: { ...HEADERS, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ limit: 100, offset: 0, sortBy: { column: 'created_at', order: 'asc' } })
+    });
+    if (!res.ok) throw new Error('List failed');
+    const files = await res.json();
+    if (Array.isArray(files) && files.length) {
+      galleryPhotos = files.map(f => ({
+        src: `${PUBLIC_URL}/gallery/${f.name}`,
+        name: f.name.replace(/^\d+_/, '').replace(/_/g, ' ').replace(/\.[^.]+$/, '')
+      }));
+      renderGallery();
+    }
+  } catch(e) {
+    // Fallback: if list API blocked, try loading known photos via Image preload
+    console.log('Gallery list fetch blocked — trying fallback');
+    loadGalleryFallback();
+  }
+}
 
-async function uploadGallery(e) {
+// Fallback: load gallery using Supabase RPC function
+async function loadGalleryFallback() {
+  try {
+    const res = await fetch(
+      `${CONFIG.SUPABASE_URL}/rest/v1/rpc/list_gallery_photos`,
+      { method: 'POST', headers: { ...HEADERS, 'Content-Type': 'application/json' }, body: '{}' }
+    );
+    if (!res.ok) throw new Error('RPC failed');
+    const files = await res.json();
+    if (Array.isArray(files) && files.length) {
+      galleryPhotos = files.map(f => ({
+        src: f.url,
+        name: f.name.replace(/^\d+_/, '').replace(/_/g, ' ').replace(/\.[^.]+$/, '')
+      }));
+      renderGallery();
+    }
+  } catch(e) {
+    console.log('Gallery could not be loaded:', e);
+  }
+}
   const files = Array.from(e.target.files);
   e.target.value = '';
   if (!files.length) return;
