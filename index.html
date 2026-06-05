@@ -79,9 +79,10 @@ section{padding:90px 6%}
 .metric-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .metric-label{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.4}
 .hscroll-wrap{position:relative;overflow:hidden;padding:8px 0 24px}
-.hscroll-track{display:flex;gap:20px;width:max-content;animation:scrollLeft 180s linear infinite}
+.hscroll-track{display:flex;gap:20px;width:max-content;animation:scrollLeft 120s linear infinite}
 .hscroll-track:hover{animation-play-state:paused}
-.hscroll-track.slow{animation-duration:100s}
+.hscroll-track.slow{animation-duration:180s}
+.hscroll-track.fast{animation-duration:100s}
 #gallery{background:var(--dark)}
 .gallery-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
 .edit-gallery-btn{background:rgba(201,168,76,0.12);border:1px solid var(--border);color:var(--gold);padding:10px 20px;border-radius:4px;font-size:.82rem;cursor:pointer;transition:.3s;display:flex;align-items:center;gap:8px}
@@ -884,7 +885,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="section-line"></div>
     <p style="color:var(--gold);font-size:.8rem;margin-bottom:16px;letter-spacing:.5px">⭐ TOPMATE REVIEWS</p>
     <div class="hscroll-wrap">
-      <div class="hscroll-track">
+      <div class="hscroll-track fast">
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">I feel so happy and grateful to find a mentor who patiently listens and gives valuable insights. Money invested is very less compared to the services provided.</p><div class="testimonial-author">Pragathi Kondru</div><div class="testimonial-role">Mentee · Topmate</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">Ms Sridevi was very observant and gave practical guidance. She gave short-term and long-term action plans. Highly recommended mentor.</p><div class="testimonial-author">Biju Cherian</div><div class="testimonial-role">Mentee · Topmate</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">My session was absolute clarity forward. One simple solution helped me structure my entire new direction in AI strategy. Truly appreciate your time.</p><div class="testimonial-author">Riddhi Desai</div><div class="testimonial-role">Mentee · AI Strategy</div></div>
