@@ -518,50 +518,7 @@ async function executeDelete() {
   }
 }
 
-async function loadGalleryFromSupabase() {
-  // List files via Supabase REST API
-  try {
-    const res = await fetch(`${STORAGE}/object/list/gallery`, {
-      method: 'POST',
-      headers: { ...HEADERS, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ limit: 100, offset: 0, sortBy: { column: 'created_at', order: 'asc' } })
-    });
-    if (!res.ok) throw new Error('List failed');
-    const files = await res.json();
-    if (Array.isArray(files) && files.length) {
-      galleryPhotos = files.map(f => ({
-        src: `${PUBLIC_URL}/gallery/${f.name}`,
-        name: f.name
-      }));
-      renderGallery();
-    }
-  } catch(e) {
-    // Fallback: if list API blocked, try loading known photos via Image preload
-    console.log('Gallery list fetch blocked — trying fallback');
-    loadGalleryFallback();
-  }
-}
 
-// Fallback: load gallery using Supabase RPC function
-async function loadGalleryFallback() {
-  try {
-    const res = await fetch(
-      `${CONFIG.SUPABASE_URL}/rest/v1/rpc/list_gallery_photos`,
-      { method: 'POST', headers: { ...HEADERS, 'Content-Type': 'application/json' }, body: '{}' }
-    );
-    if (!res.ok) throw new Error('RPC failed');
-    const files = await res.json();
-    if (Array.isArray(files) && files.length) {
-      galleryPhotos = files.map(f => ({
-        src: f.url,
-        name: f.name.replace(/^\d+_/, '').replace(/_/g, ' ').replace(/\.[^.]+$/, '')
-      }));
-      renderGallery();
-    }
-  } catch(e) {
-    console.log('Gallery could not be loaded:', e);
-  }
-}
 
 async function uploadGallery(e) {
   const files = Array.from(e.target.files);
@@ -585,7 +542,7 @@ async function uploadGallery(e) {
       const safeName = Date.now() + '_' + f.name.replace(/\s+/g,'_');
       try {
         const url = await uploadToSupabase('gallery', safeName, f);
-        galleryPhotos.push({ src: url, name: f.name });
+        galleryPhotos.push({ src: url, name: safeName });
       } catch(err) { console.error('Gallery upload error:', err); }
     }
   }
