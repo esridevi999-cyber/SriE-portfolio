@@ -91,6 +91,9 @@ section{padding:90px 6%}
 .gallery-slot.placeholder-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:.8rem;border:2px dashed rgba(201,168,76,0.2)}
 .ph-icon{font-size:1.8rem;opacity:.5}
 .slot-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:8px;font-size:.72rem;color:rgba(255,255,255,0.7)}
+.slot-delete{position:absolute;top:6px;right:6px;background:rgba(200,30,30,0.85);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:.85rem;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:10}
+.gallery-slot:hover .slot-delete{display:flex}
+.profile-delete-btn{margin-top:8px;background:rgba(200,30,30,0.85);color:#fff;border:none;border-radius:4px;padding:5px 14px;font-size:.78rem;cursor:pointer;display:none;}
 #testimonials{background:var(--dark2)}
 .testimonial-card{width:320px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;position:relative}
 .testimonial-card::before{content:'"';position:absolute;top:12px;right:16px;font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--gold);opacity:.2;line-height:1}
@@ -265,16 +268,19 @@ async function submitPwd() {
   if (hashed === window.__ownerHash) {
     const t = pendingTarget;
     closePwdModal();
-    // Use a real anchor-based trigger — most compatible across all browsers/devices
-    const inputId = t === 'profile' ? 'profileInput' : 'galleryInput';
-    const input = document.getElementById(inputId);
-    // Create a visible temporary trigger button and click it as a real user gesture
-    const trigger = document.createElement('label');
-    trigger.setAttribute('for', inputId);
-    trigger.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;background:transparent;width:1px;height:1px;overflow:hidden;';
-    document.body.appendChild(trigger);
-    trigger.click();
-    setTimeout(() => trigger.remove(), 500);
+    if (t === 'delete') {
+      // Delete — no file picker needed, execute directly
+      await executeDelete();
+    } else {
+      // Upload — open file picker via label trick (real user gesture)
+      const inputId = t === 'profile' ? 'profileInput' : 'galleryInput';
+      const trigger = document.createElement('label');
+      trigger.setAttribute('for', inputId);
+      trigger.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;background:transparent;width:1px;height:1px;overflow:hidden;';
+      document.body.appendChild(trigger);
+      trigger.click();
+      setTimeout(() => trigger.remove(), 500);
+    }
   } else {
     document.getElementById('pwdError').classList.add('show');
     document.getElementById('pwdInput').value = '';
@@ -393,6 +399,7 @@ function showProfileImg(url) {
   document.getElementById('profileImg').src = url;
   document.getElementById('profilePlaceholder').style.display = 'none';
   document.getElementById('profileImgWrap').style.display = 'block';
+  document.getElementById('profileDeleteBtn').style.display = 'inline-block';
 }
 
 // ============================================================
@@ -407,6 +414,57 @@ async function loadProfileFromSupabase() {
   img.onload = () => showProfileImg(url);
   img.onerror = () => console.log('No profile photo yet');
   img.src = url;
+}
+
+// ============================================================
+// DELETE FUNCTIONS
+// ============================================================
+let deleteTarget = null; // { type: 'profile' | 'gallery', idx, name }
+
+function openDeleteModal(type, idx, name) {
+  deleteTarget = { type, idx, name };
+  pendingTarget = 'delete';
+  document.getElementById('pwdInput').value = '';
+  document.getElementById('pwdError').classList.remove('show');
+  document.getElementById('pwdModal').classList.add('active');
+  document.getElementById('pwdInput').focus();
+}
+
+async function deleteFromSupabase(bucket, path) {
+  const url = `${STORAGE}/object/${bucket}/${path}`;
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'apikey': CONFIG.SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+    }
+  });
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`Delete failed ${res.status}: ${errText}`);
+  }
+}
+
+async function executeDelete() {
+  if (!deleteTarget) return;
+  const { type, idx, name } = deleteTarget;
+  try {
+    if (type === 'gallery') {
+      await deleteFromSupabase('gallery', name);
+      galleryPhotos.splice(idx, 1);
+      renderGallery();
+    } else if (type === 'profile') {
+      await deleteFromSupabase('profile', 'profile-photo');
+      document.getElementById('profileImg').src = '';
+      document.getElementById('profileImgWrap').style.display = 'none';
+      document.getElementById('profilePlaceholder').style.display = 'flex';
+      document.getElementById('profilePlaceholder').querySelector('.pp-text').textContent = 'Click to upload your profile photo';
+    }
+    deleteTarget = null;
+  } catch(err) {
+    console.error('Delete error:', err);
+    alert('Delete failed: ' + err.message);
+  }
 }
 
 async function loadGalleryFromSupabase() {
@@ -483,7 +541,19 @@ function renderGallery() {
     });
     return;
   }
-  [...galleryPhotos, ...galleryPhotos].forEach(p => {
+  // First pass: real photos with delete buttons; second pass: duplicates for seamless scroll (no delete)
+  galleryPhotos.forEach((p, idx) => {
+    const s = document.createElement('div'); s.className = 'gallery-slot';
+    const img = document.createElement('img'); img.src = p.src; img.alt = p.name;
+    const lbl = document.createElement('div'); lbl.className = 'slot-label';
+    lbl.textContent = p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');
+    const del = document.createElement('button'); del.className = 'slot-delete';
+    del.title = 'Delete photo'; del.innerHTML = '🗑';
+    del.onclick = (e) => { e.stopPropagation(); openDeleteModal('gallery', idx, p.name); };
+    s.appendChild(img); s.appendChild(lbl); s.appendChild(del); track.appendChild(s);
+  });
+  // Duplicate for seamless loop (no delete buttons on duplicates)
+  galleryPhotos.forEach(p => {
     const s = document.createElement('div'); s.className = 'gallery-slot';
     const img = document.createElement('img'); img.src = p.src; img.alt = p.name;
     const lbl = document.createElement('div'); lbl.className = 'slot-label';
@@ -681,6 +751,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Profile image shown after upload -->
         <div id="profileImgWrap" style="position:relative;display:none;width:340px;height:400px">
           <img id="profileImg" src="" alt="Sridevi Edupuganti" style="width:100%;height:100%;object-fit:cover;border-radius:4px"/>
+          <button id="profileDeleteBtn" class="profile-delete-btn" onclick="openDeleteModal('profile', null, 'profile-photo')" style="display:none;position:absolute;top:8px;right:8px;">🗑️ Delete Photo</button>
           <div class="hero-img-border"></div>
           <div class="hero-badge"><strong>🏆 Guinness WR</strong>Microsoft AI Fest</div>
           <div class="floating-cert">🎓 IIT-G · ISB · Azure 5×</div>
