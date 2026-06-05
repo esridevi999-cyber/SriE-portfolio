@@ -531,7 +531,7 @@ async function loadGalleryFromSupabase() {
     if (Array.isArray(files) && files.length) {
       galleryPhotos = files.map(f => ({
         src: `${PUBLIC_URL}/gallery/${f.name}`,
-        name: f.name.replace(/^\d+_/, '').replace(/_/g, ' ').replace(/\.[^.]+$/, '')
+        name: f.name
       }));
       renderGallery();
     }
