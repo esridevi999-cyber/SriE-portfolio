@@ -91,9 +91,11 @@ section{padding:90px 6%}
 .gallery-slot.placeholder-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:.8rem;border:2px dashed rgba(201,168,76,0.2)}
 .ph-icon{font-size:1.8rem;opacity:.5}
 .slot-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:8px;font-size:.72rem;color:rgba(255,255,255,0.7)}
-.slot-delete{position:absolute;top:6px;right:6px;background:rgba(200,30,30,0.85);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:.85rem;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:10}
-.gallery-slot:hover .slot-delete{display:flex}
-.profile-delete-btn{margin-top:8px;background:rgba(200,30,30,0.85);color:#fff;border:none;border-radius:4px;padding:5px 14px;font-size:.78rem;cursor:pointer;display:none;}
+.photo-context-menu{position:fixed;background:#1a1a2e;border:1px solid rgba(201,168,76,0.4);border-radius:6px;padding:4px 0;z-index:99999;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.5);display:none;}
+.photo-context-menu.show{display:block;}
+.photo-context-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:9px 16px;background:none;border:none;color:#fff;font-size:.85rem;cursor:pointer;text-align:left;}
+.photo-context-menu button:hover{background:rgba(201,168,76,0.15);color:var(--gold);}
+.photo-context-menu button.danger:hover{background:rgba(200,30,30,0.2);color:#ff6b6b;}
 #testimonials{background:var(--dark2)}
 .testimonial-card{width:320px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;position:relative}
 .testimonial-card::before{content:'"';position:absolute;top:12px;right:16px;font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--gold);opacity:.2;line-height:1}
@@ -399,7 +401,6 @@ function showProfileImg(url) {
   document.getElementById('profileImg').src = url;
   document.getElementById('profilePlaceholder').style.display = 'none';
   document.getElementById('profileImgWrap').style.display = 'block';
-  document.getElementById('profileDeleteBtn').style.display = 'inline-block';
 }
 
 // ============================================================
@@ -420,6 +421,49 @@ async function loadProfileFromSupabase() {
 // DELETE FUNCTIONS
 // ============================================================
 let deleteTarget = null; // { type: 'profile' | 'gallery', idx, name }
+
+// ── Right-click context menu ──────────────────────────────
+const ctxMenu = (() => {
+  const el = document.createElement('div');
+  el.className = 'photo-context-menu';
+  el.id = 'photoCtxMenu';
+  el.innerHTML = `<button class="danger" id="ctxDeleteBtn">🗑️ Delete Photo</button>`;
+  document.body.appendChild(el);
+  // Hide on any outside click
+  document.addEventListener('click', () => el.classList.remove('show'));
+  document.addEventListener('contextmenu', () => el.classList.remove('show'));
+  return el;
+})();
+
+function showPhotoContextMenu(e, type, idx, name) {
+  e.preventDefault();
+  e.stopPropagation();
+  const menu = document.getElementById('photoCtxMenu');
+  // Position near cursor, keep inside viewport
+  const x = Math.min(e.clientX, window.innerWidth - 180);
+  const y = Math.min(e.clientY, window.innerHeight - 60);
+  menu.style.left = x + 'px';
+  menu.style.top  = y + 'px';
+  menu.classList.add('show');
+  document.getElementById('ctxDeleteBtn').onclick = (ev) => {
+    ev.stopPropagation();
+    menu.classList.remove('show');
+    openDeleteModal(type, idx, name);
+  };
+}
+
+// Attach right-click to profile image
+document.addEventListener('DOMContentLoaded', () => {
+  const profileImg = document.getElementById('profileImg');
+  if (profileImg) {
+    profileImg.addEventListener('contextmenu', (e) => {
+      const wrap = document.getElementById('profileImgWrap');
+      if (wrap && wrap.style.display !== 'none') {
+        showPhotoContextMenu(e, 'profile', null, 'profile-photo');
+      }
+    });
+  }
+});
 
 function openDeleteModal(type, idx, name) {
   deleteTarget = { type, idx, name };
@@ -547,10 +591,8 @@ function renderGallery() {
     const img = document.createElement('img'); img.src = p.src; img.alt = p.name;
     const lbl = document.createElement('div'); lbl.className = 'slot-label';
     lbl.textContent = p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');
-    const del = document.createElement('button'); del.className = 'slot-delete';
-    del.title = 'Delete photo'; del.innerHTML = '🗑';
-    del.onclick = (e) => { e.stopPropagation(); openDeleteModal('gallery', idx, p.name); };
-    s.appendChild(img); s.appendChild(lbl); s.appendChild(del); track.appendChild(s);
+    s.addEventListener('contextmenu', (e) => { e.preventDefault(); showPhotoContextMenu(e, 'gallery', idx, p.name); });
+    s.appendChild(img); s.appendChild(lbl); track.appendChild(s);
   });
   // Duplicate for seamless loop (no delete buttons on duplicates)
   galleryPhotos.forEach(p => {
@@ -751,7 +793,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Profile image shown after upload -->
         <div id="profileImgWrap" style="position:relative;display:none;width:340px;height:400px">
           <img id="profileImg" src="" alt="Sridevi Edupuganti" style="width:100%;height:100%;object-fit:cover;border-radius:4px"/>
-          <button id="profileDeleteBtn" class="profile-delete-btn" onclick="openDeleteModal('profile', null, 'profile-photo')" style="display:none;position:absolute;top:8px;right:8px;">🗑️ Delete Photo</button>
+
           <div class="hero-img-border"></div>
           <div class="hero-badge"><strong>🏆 Guinness WR</strong>Microsoft AI Fest</div>
           <div class="floating-cert">🎓 IIT-G · ISB · Azure 5×</div>
