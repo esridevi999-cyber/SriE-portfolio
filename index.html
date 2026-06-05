@@ -421,13 +421,14 @@ async function loadProfileFromSupabase() {
 // DELETE FUNCTIONS
 // ============================================================
 let deleteTarget = null; // { type: 'profile' | 'gallery', idx, name }
+let pendingReplaceTarget = null; // { idx, name } — set when replacing a specific gallery photo
 
 // ── Right-click context menu ──────────────────────────────
 const ctxMenu = (() => {
   const el = document.createElement('div');
   el.className = 'photo-context-menu';
   el.id = 'photoCtxMenu';
-  el.innerHTML = `<button class="danger" id="ctxDeleteBtn">🗑️ Delete Photo</button>`;
+  el.innerHTML = `<button id="ctxDeleteBtn">🔄 Replace Photo</button>`;
   document.body.appendChild(el);
   // Hide on any outside click
   document.addEventListener('click', () => el.classList.remove('show'));
@@ -448,7 +449,13 @@ function showPhotoContextMenu(e, type, idx, name) {
   document.getElementById('ctxDeleteBtn').onclick = (ev) => {
     ev.stopPropagation();
     menu.classList.remove('show');
-    openDeleteModal(type, idx, name);
+    // Store the existing filename so upload overwrites it (x-upsert: true handles the rest)
+    pendingReplaceTarget = { idx, name };
+    pendingTarget = 'gallery';
+    document.getElementById('pwdInput').value = '';
+    document.getElementById('pwdError').classList.remove('show');
+    document.getElementById('pwdModal').classList.add('active');
+    document.getElementById('pwdInput').focus();
   };
 }
 
@@ -562,13 +569,27 @@ async function uploadGallery(e) {
   if (!files.length) return;
   const btn = document.querySelector('.edit-gallery-btn');
   btn.textContent = '⏳ Uploading…';
-  for (const f of files) {
-    const safeName = Date.now() + '_' + f.name.replace(/\s+/g,'_');
+
+  if (pendingReplaceTarget) {
+    // Replace mode — overwrite the specific existing photo
+    const { idx, name } = pendingReplaceTarget;
+    pendingReplaceTarget = null;
+    const f = files[0]; // only use first file when replacing
     try {
-      const url = await uploadToSupabase('gallery', safeName, f);
-      galleryPhotos.push({ src: url, name: f.name });
-    } catch(err) { console.error('Gallery upload error:', err); }
+      const url = await uploadToSupabase('gallery', name, f);
+      galleryPhotos[idx] = { src: url + '?t=' + Date.now(), name };
+    } catch(err) { console.error('Gallery replace error:', err); }
+  } else {
+    // Normal upload — add new photo(s)
+    for (const f of files) {
+      const safeName = Date.now() + '_' + f.name.replace(/\s+/g,'_');
+      try {
+        const url = await uploadToSupabase('gallery', safeName, f);
+        galleryPhotos.push({ src: url, name: f.name });
+      } catch(err) { console.error('Gallery upload error:', err); }
+    }
   }
+
   btn.innerHTML = '✏️ Edit Gallery <span style="font-size:.7rem;color:var(--muted)">(Single or Multiple)</span>';
   renderGallery();
 }
@@ -585,16 +606,18 @@ function renderGallery() {
     });
     return;
   }
-  // First pass: real photos with delete buttons; second pass: duplicates for seamless scroll (no delete)
+  // First pass: real photos with right-click replace; second pass: duplicates for seamless scroll
   galleryPhotos.forEach((p, idx) => {
     const s = document.createElement('div'); s.className = 'gallery-slot';
     const img = document.createElement('img'); img.src = p.src; img.alt = p.name;
     const lbl = document.createElement('div'); lbl.className = 'slot-label';
     lbl.textContent = p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');
+    s.appendChild(img);
+    s.appendChild(lbl);
+    track.appendChild(s);
     s.addEventListener('contextmenu', (e) => { e.preventDefault(); showPhotoContextMenu(e, 'gallery', idx, p.name); });
-    s.appendChild(img); s.appendChild(lbl); track.appendChild(s);
   });
-  // Duplicate for seamless loop (no delete buttons on duplicates)
+  // Duplicate for seamless loop (no right-click on duplicates)
   galleryPhotos.forEach(p => {
     const s = document.createElement('div'); s.className = 'gallery-slot';
     const img = document.createElement('img'); img.src = p.src; img.alt = p.name;
