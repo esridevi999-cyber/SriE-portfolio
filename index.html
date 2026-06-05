@@ -367,7 +367,7 @@ async function listSupabaseFiles(bucket) {
   const res = await fetch(`${STORAGE}/object/list/${bucket}`, {
     method: 'POST',
     headers: { ...HEADERS, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ limit: 100, offset: 0, sortBy: { column: 'created_at', order: 'asc' } })
+    body: JSON.stringify({ prefix: '', limit: 100, offset: 0, sortBy: { column: 'created_at', order: 'asc' } })
   });
   if (!res.ok) return [];
   const files = await res.json();
