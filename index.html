@@ -35,7 +35,6 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--gold),var(--gold
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold)}
 .stat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
 .hero-visual{position:relative;display:flex;justify-content:center}
-/* Profile placeholder */
 .profile-placeholder{width:340px;height:400px;border-radius:4px;border:2px dashed var(--gold);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:.3s;user-select:none}
 .profile-placeholder:hover{background:rgba(201,168,76,0.05)}
 .pp-icon{font-size:3rem;opacity:.5}
@@ -92,11 +91,10 @@ section{padding:90px 6%}
 .gallery-slot.placeholder-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:.8rem;border:2px dashed rgba(201,168,76,0.2)}
 .ph-icon{font-size:1.8rem;opacity:.5}
 .slot-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:8px;font-size:.72rem;color:rgba(255,255,255,0.7)}
-.photo-context-menu{position:fixed;background:#1a1a2e;border:1px solid rgba(201,168,76,0.4);border-radius:6px;padding:4px 0;z-index:99999;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.5);display:none;}
-.photo-context-menu.show{display:block;}
-.photo-context-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:9px 16px;background:none;border:none;color:#fff;font-size:.85rem;cursor:pointer;text-align:left;}
-.photo-context-menu button:hover{background:rgba(201,168,76,0.15);color:var(--gold);}
-.photo-context-menu button.danger:hover{background:rgba(200,30,30,0.2);color:#ff6b6b;}
+.photo-context-menu{position:fixed;background:#1a1a2e;border:1px solid rgba(201,168,76,0.4);border-radius:6px;padding:4px 0;z-index:99999;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.5);display:none}
+.photo-context-menu.show{display:block}
+.photo-context-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:9px 16px;background:none;border:none;color:#fff;font-size:.85rem;cursor:pointer;text-align:left}
+.photo-context-menu button:hover{background:rgba(201,168,76,0.15);color:var(--gold)}
 #testimonials{background:var(--dark2)}
 .testimonial-card{width:320px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;position:relative}
 .testimonial-card::before{content:'"';position:absolute;top:12px;right:16px;font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--gold);opacity:.2;line-height:1}
@@ -112,6 +110,25 @@ section{padding:90px 6%}
 .rec-company{font-size:.72rem;color:var(--gold)}
 .rec-text{font-size:.82rem;color:var(--muted);line-height:1.7;font-style:italic}
 .li-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(10,102,194,0.15);border:1px solid rgba(10,102,194,0.3);border-radius:4px;padding:3px 8px;font-size:.7rem;color:#70A8D8;margin-bottom:10px}
+/* BLOG */
+#blog{background:var(--dark)}
+.blog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:12px}
+.add-blog-btn{background:rgba(201,168,76,0.12);border:1px solid var(--border);color:var(--gold);padding:10px 20px;border-radius:4px;font-size:.82rem;cursor:pointer;transition:.3s;display:flex;align-items:center;gap:8px}
+.add-blog-btn:hover{background:rgba(201,168,76,0.2);border-color:var(--gold)}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s;cursor:pointer;display:flex;flex-direction:column}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.4)}
+.blog-card-img{width:100%;height:180px;background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--muted)}
+.blog-card-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.blog-tag{font-size:.68rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.blog-card h3{font-size:.95rem;color:#fff;font-weight:600;margin-bottom:8px;line-height:1.4}
+.blog-card p{font-size:.82rem;color:var(--muted);line-height:1.6;flex:1}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.blog-date{font-size:.72rem;color:var(--muted)}
+.blog-read{font-size:.72rem;color:var(--gold);font-weight:600;text-decoration:none}
+.blog-placeholder{background:var(--card);border:2px dashed rgba(201,168,76,0.2);border-radius:8px;padding:40px 20px;text-align:center;color:var(--muted)}
+.blog-placeholder .bp-icon{font-size:2.5rem;margin-bottom:12px;opacity:.4}
+.blog-placeholder p{font-size:.85rem;line-height:1.6}
 #skills{background:var(--dark2)}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .skill-group{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px}
@@ -132,7 +149,7 @@ section{padding:90px 6%}
 .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
 .cert-chip{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:13px 16px;font-size:.8rem;color:var(--text);display:flex;align-items:center;gap:10px;transition:.3s}
 .cert-chip:hover{border-color:rgba(201,168,76,0.4);color:var(--gold)}
-/* PASSWORD MODAL */
+/* MODALS */
 .pwd-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px}
 .pwd-overlay.active{display:flex}
 .pwd-box{background:#10131E;border:1px solid rgba(201,168,76,0.3);border-radius:12px;padding:32px;width:100%;max-width:360px}
@@ -146,7 +163,17 @@ section{padding:90px 6%}
 .pwd-error.show{display:block}
 .pwd-unlock-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0A0C14;padding:13px;border-radius:4px;font-weight:700;font-size:.92rem;border:none;cursor:pointer;margin-bottom:10px}
 .pwd-cancel-btn{width:100%;background:none;border:1px solid var(--border);color:var(--muted);padding:11px;border-radius:4px;font-size:.85rem;cursor:pointer}
-/* BOOKING MODAL */
+.blog-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1500;align-items:center;justify-content:center;padding:20px}
+.blog-modal-overlay.active{display:flex}
+.blog-modal{background:var(--dark2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:560px;max-height:92vh;overflow-y:auto}
+.blog-modal-header{padding:24px 28px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.blog-modal-header h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff}
+.blog-modal-body{padding:24px 28px}
+.bform-group{margin-bottom:16px}
+.bform-group label{display:block;font-size:.74rem;color:var(--gold);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.bform-group input,.bform-group select,.bform-group textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:11px 14px;color:var(--text);font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:.3s;resize:vertical}
+.bform-group input:focus,.bform-group select:focus,.bform-group textarea:focus{border-color:var(--gold)}
+.bform-group select option{background:var(--dark2)}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.active{display:flex}
 .modal{background:var(--dark2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:540px;max-height:92vh;overflow-y:auto}
@@ -204,531 +231,81 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:40px 6%
 .fade-up.visible{opacity:1;transform:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes scrollLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@media(max-width:768px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero-visual{order:-1}.profile-placeholder{width:100%;height:260px}.floating-cert,.hero-badge{display:none}nav .nav-links{display:none}.awards-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero-visual{order:-1}.profile-placeholder{width:100%;height:260px}.floating-cert,.hero-badge{display:none}nav .nav-links{display:none}.awards-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<!-- ===== ALL SCRIPTS FIRST so functions are defined before HTML onclick calls ===== -->
 <script>
-// ============================================================
-// CONFIG
-// ============================================================
-const CONFIG = {
-  SUPABASE_URL: 'https://pcbvqxgtqqsnkbmifcyb.supabase.co',
-  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjYnZxeGd0cXFzbmtibWlmY3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjczMzAsImV4cCI6MjA5NTQ0MzMzMH0.GoC7XZ_KI2pRzHFGD62014gq-gK6D6sx66xaaGknBjU',
-  EMAILJS_SERVICE_ID: 'service_z6157mx',
-  EMAILJS_TEMPLATE_ID: 'template_noevlqp',
-  EMAILJS_PUBLIC_KEY: 'O0cYefEhpH8r-t8kD',
-  OWNER_EMAIL_1: 'info@srideviedupuganti.com',
-  OWNER_EMAIL_2: 'esridevi999@gmail.com',
-};
+const CONFIG={SUPABASE_URL:'https://pcbvqxgtqqsnkbmifcyb.supabase.co',SUPABASE_ANON_KEY:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjYnZxeGd0cXFzbmtibWlmY3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjczMzAsImV4cCI6MjA5NTQ0MzMzMH0.GoC7XZ_KI2pRzHFGD62014gq-gK6D6sx66xaaGknBjU',EMAILJS_SERVICE_ID:'service_z6157mx',EMAILJS_TEMPLATE_ID:'template_noevlqp',EMAILJS_PUBLIC_KEY:'O0cYefEhpH8r-t8kD',OWNER_EMAIL_1:'info@srideviedupuganti.com',OWNER_EMAIL_2:'esridevi999@gmail.com'};
+const STORAGE=`${CONFIG.SUPABASE_URL}/storage/v1`;
+const HEADERS={'apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`};
+const emailReady=()=>!CONFIG.EMAILJS_PUBLIC_KEY.includes('YOUR_');
+if(emailReady())emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
 
-const STORAGE = `${CONFIG.SUPABASE_URL}/storage/v1`;
-const HEADERS  = { 'apikey': CONFIG.SUPABASE_ANON_KEY, 'Authorization': `Bearer ${CONFIG.SUPABASE_ANON_KEY}` };
-const emailReady = () => !CONFIG.EMAILJS_PUBLIC_KEY.includes('YOUR_');
+// OWNER AUTH
+let pendingTarget=null;
+async function hashPassword(pwd){const enc=new TextEncoder();const buf=await crypto.subtle.digest('SHA-256',enc.encode(pwd));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}
+window.__ownerHash='0103f63df9cd6a5feac5caa0fad63b659c21c672e51f748d8b40e060ae1de8de';
+function openPwdModal(target){pendingTarget=target;document.getElementById('pwdModal').classList.add('active');document.getElementById('pwdInput').value='';document.getElementById('pwdInput').type='password';document.getElementById('eyeBtn').textContent='👁️';document.getElementById('pwdError').classList.remove('show');setTimeout(()=>document.getElementById('pwdInput').focus(),120);}
+function closePwdModal(){document.getElementById('pwdModal').classList.remove('active');pendingTarget=null;}
+async function submitPwd(){const pwd=document.getElementById('pwdInput').value;if(!pwd)return;const hashed=await hashPassword(pwd);if(hashed===window.__ownerHash){const t=pendingTarget;closePwdModal();setTimeout(()=>{if(t==='profile')document.getElementById('profileInput').click();else if(t==='gallery')document.getElementById('galleryInput').click();else if(t==='blog')openBlogModal();},100);}else{document.getElementById('pwdError').classList.add('show');document.getElementById('pwdInput').value='';document.getElementById('pwdInput').focus();}}
+function toggleEye(){const i=document.getElementById('pwdInput');const b=document.getElementById('eyeBtn');i.type=i.type==='password'?'text':'password';b.textContent=i.type==='password'?'👁️':'🙈';}
 
-// Initialise EmailJS immediately
-if (emailReady()) {
-  emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
-}
-
-// ============================================================
-// OWNER AUTH — password hashed at runtime, asked every time
-// ============================================================
-let pendingTarget = null; // 'profile' | 'gallery'
-
-async function hashPassword(pwd) {
-  const enc = new TextEncoder();
-  const buf = await crypto.subtle.digest('SHA-256', enc.encode(pwd));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
-
-// Compute hash of real password at page load
-window.__ownerHash = '0103f63df9cd6a5feac5caa0fad63b659c21c672e51f748d8b40e060ae1de8de';
-
-function openPwdModal(target) {
-  pendingTarget = target;
-  const m = document.getElementById('pwdModal');
-  m.classList.add('active');
-  document.getElementById('pwdInput').value = '';
-  document.getElementById('pwdInput').type = 'password';
-  document.getElementById('eyeBtn').textContent = '👁️';
-  document.getElementById('pwdError').classList.remove('show');
-  setTimeout(() => document.getElementById('pwdInput').focus(), 120);
-}
-
-function closePwdModal() {
-  document.getElementById('pwdModal').classList.remove('active');
-  pendingTarget = null;
-  resetPwdModal();
-}
-
-async function submitPwd() {
-  const pwd = document.getElementById('pwdInput').value;
-  if (!pwd) return;
-  const hashed = await hashPassword(pwd);
-  if (hashed === window.__ownerHash) {
-    const t = pendingTarget;
-    closePwdModal();
-    if (t === 'delete') {
-      // Delete — no file picker needed, execute directly
-      await executeDelete();
-    } else {
-      // Upload — open file picker via label trick (real user gesture)
-      const inputId = t === 'profile' ? 'profileInput' : 'galleryInput';
-      const trigger = document.createElement('label');
-      trigger.setAttribute('for', inputId);
-      trigger.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;background:transparent;width:1px;height:1px;overflow:hidden;';
-      document.body.appendChild(trigger);
-      trigger.click();
-      setTimeout(() => trigger.remove(), 500);
-    }
-  } else {
-    document.getElementById('pwdError').classList.add('show');
-    document.getElementById('pwdInput').value = '';
-    document.getElementById('pwdInput').focus();
-  }
-}
-
-function resetPwdModal() {
-  // nothing to reset now
-}
-
-function toggleEye() {
-  const i = document.getElementById('pwdInput');
-  const b = document.getElementById('eyeBtn');
-  i.type = i.type === 'password' ? 'text' : 'password';
-  b.textContent = i.type === 'password' ? '👁️' : '🙈';
-}
-
-// ============================================================
 // SUPABASE STORAGE
-// ============================================================
-async function uploadToSupabase(bucket, path, file) {
-  const url = `${STORAGE}/object/${bucket}/${path}`;
-  console.log("Starting upload to:", url);
-  console.log("File:", file.name, file.type, file.size, "bytes");
+const PUBLIC_URL=`${CONFIG.SUPABASE_URL}/storage/v1/object/public`;
+async function uploadToSupabase(bucket,path,file){const dataUrl=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(new Error('FileReader failed'));r.readAsDataURL(file);});const base64=dataUrl.split(',')[1];const binary=atob(base64);const bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);const blob=new Blob([bytes],{type:file.type||'image/jpeg'});const headers={'apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,'Content-Type':blob.type,'x-upsert':'true'};const url=`${STORAGE}/object/${bucket}/${path}`;let res=await fetch(url,{method:'POST',headers,body:blob});if(!res.ok&&(res.status===409||res.status===400))res=await fetch(url,{method:'PUT',headers,body:blob});if(!res.ok)throw new Error(`Upload failed ${res.status}`);return`${PUBLIC_URL}/${bucket}/${path}`;}
+async function listSupabaseFiles(bucket){const res=await fetch(`${STORAGE}/object/list/${bucket}`,{method:'POST',headers:{...HEADERS,'Content-Type':'application/json'},body:JSON.stringify({prefix:'',limit:100,offset:0,sortBy:{column:'created_at',order:'asc'}})});if(!res.ok)return[];const files=await res.json();return(Array.isArray(files)?files:[]).map(f=>({src:`${PUBLIC_URL}/${bucket}/${f.name}`,name:f.name}));}
 
-  // Convert file to base64 data URL, then to Blob — most compatible method
-  const dataUrl = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = () => reject(new Error("FileReader failed"));
-    reader.readAsDataURL(file);
-  });
+// PROFILE
+async function uploadProfilePic(e){const f=e.target.files[0];e.target.value='';if(!f)return;document.getElementById('profilePlaceholder').querySelector('.pp-text').textContent='⏳ Uploading…';try{const url=await uploadToSupabase('profile','profile-photo',f);showProfileImg(url+'?t='+Date.now());}catch(err){document.getElementById('profilePlaceholder').querySelector('.pp-text').textContent='Upload failed. Try again.';}}
+function showProfileImg(url){document.getElementById('profileImg').src=url;document.getElementById('profilePlaceholder').style.display='none';document.getElementById('profileImgWrap').style.display='block';}
+async function loadProfileFromSupabase(){const url=`${PUBLIC_URL}/profile/profile-photo?t=${Date.now()}`;const img=new Image();img.onload=()=>showProfileImg(url);img.onerror=()=>console.log('No profile photo yet');img.src=url;}
 
-  // Convert base64 back to binary Blob
-  const base64 = dataUrl.split(",")[1];
-  const binary = atob(base64);
-  const bytes = new Uint8Array(binary.length);
-  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-  const blob = new Blob([bytes], { type: file.type || "image/jpeg" });
+// GALLERY
+let galleryPhotos=[];
+let pendingReplaceTarget=null;
+const ctxMenu=(()=>{const el=document.createElement('div');el.className='photo-context-menu';el.id='photoCtxMenu';el.innerHTML='<button id="ctxReplaceBtn">🔄 Replace Photo</button>';document.body.appendChild(el);document.addEventListener('click',()=>el.classList.remove('show'));return el;})();
+function showPhotoContextMenu(e,idx,name){e.preventDefault();e.stopPropagation();const menu=document.getElementById('photoCtxMenu');const x=Math.min(e.clientX,window.innerWidth-180);const y=Math.min(e.clientY,window.innerHeight-60);menu.style.left=x+'px';menu.style.top=y+'px';menu.classList.add('show');document.getElementById('ctxReplaceBtn').onclick=(ev)=>{ev.stopPropagation();menu.classList.remove('show');pendingReplaceTarget={idx,name};openPwdModal('gallery');};}
+async function uploadGallery(e){const files=Array.from(e.target.files);e.target.value='';if(!files.length)return;const btn=document.querySelector('.edit-gallery-btn');btn.textContent='⏳ Uploading…';if(pendingReplaceTarget){const{name}=pendingReplaceTarget;pendingReplaceTarget=null;try{await uploadToSupabase('gallery',name,files[0]);await loadGalleryFromSupabase();}catch(err){console.error(err);}}else{for(const f of files){const safeName=Date.now()+'_'+f.name.replace(/\s+/g,'_');try{const url=await uploadToSupabase('gallery',safeName,f);galleryPhotos.push({src:url,name:safeName});}catch(err){console.error(err);}}}btn.innerHTML='✏️ Edit Gallery <span style="font-size:.7rem;color:var(--muted)">(Single or Multiple)</span>';renderGallery();}
+function renderGallery(){const track=document.getElementById('galleryTrack');track.innerHTML='';if(!galleryPhotos.length){Array(6).fill(null).forEach(()=>{const s=document.createElement('div');s.className='gallery-slot placeholder-slot';s.innerHTML='<div class="ph-icon">🖼️</div><span>Add Photo</span>';track.appendChild(s);});return;}galleryPhotos.forEach((p,idx)=>{const s=document.createElement('div');s.className='gallery-slot';const img=document.createElement('img');img.src=p.src;img.alt=p.name;const lbl=document.createElement('div');lbl.className='slot-label';lbl.textContent=p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');s.appendChild(img);s.appendChild(lbl);track.appendChild(s);s.addEventListener('contextmenu',e=>showPhotoContextMenu(e,idx,p.name));});galleryPhotos.forEach(p=>{const s=document.createElement('div');s.className='gallery-slot';const img=document.createElement('img');img.src=p.src;img.alt=p.name;const lbl=document.createElement('div');lbl.className='slot-label';lbl.textContent=p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');s.appendChild(img);s.appendChild(lbl);track.appendChild(s);});}
+async function loadGalleryFromSupabase(){try{galleryPhotos=await listSupabaseFiles('gallery');if(galleryPhotos.length)renderGallery();}catch(e){console.log('Gallery load error:',e);}}
 
-  console.log("Blob ready, size:", blob.size, "type:", blob.type);
+// BLOG
+let blogPosts=[];
+function openBlogModal(){document.getElementById('blogModal').classList.add('active');document.getElementById('blogTitle').value='';document.getElementById('blogCategory').value='AI & Automation';document.getElementById('blogExcerpt').value='';document.getElementById('blogUrl').value='';document.getElementById('blogDate').value=new Date().toISOString().split('T')[0];}
+function closeBlogModal(){document.getElementById('blogModal').classList.remove('active');}
+async function saveBlogPost(){const title=document.getElementById('blogTitle').value.trim();const category=document.getElementById('blogCategory').value;const excerpt=document.getElementById('blogExcerpt').value.trim();const url=document.getElementById('blogUrl').value.trim();const date=document.getElementById('blogDate').value;if(!title||!excerpt){alert('Please fill in Title and Excerpt.');return;}const emoji=categoryEmoji(category);try{await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/blogs`,{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({title,category,excerpt,url,date,emoji})});}catch(e){console.warn('Blog save error:',e);}blogPosts.push({id:Date.now(),title,category,excerpt,url,date,emoji});renderBlog();closeBlogModal();}
+function categoryEmoji(cat){const map={'AI & Automation':'🤖','Career & Mentoring':'🎯','Cloud & Tech':'☁️','Wellbeing':'🌿','Leadership':'👩‍💼','General':'✍️'};return map[cat]||'✍️';}
+function renderBlog(){const grid=document.getElementById('blogGrid');grid.innerHTML='';if(!blogPosts.length){grid.innerHTML='<div class="blog-placeholder" style="grid-column:1/-1"><div class="bp-icon">✍️</div><p>Blog posts coming soon!<br>Click <strong style="color:var(--gold)">✍️ Add Blog Post</strong> to publish your first article.</p></div>';return;}blogPosts.forEach(p=>{const card=document.createElement('div');card.className='blog-card fade-up';card.innerHTML=`<div class="blog-card-img">${p.emoji}</div><div class="blog-card-body"><div class="blog-tag">${p.category}</div><h3>${p.title}</h3><p>${p.excerpt}</p><div class="blog-meta"><span class="blog-date">📅 ${new Date(p.date).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})}</span>${p.url?`<a href="${p.url}" target="_blank" class="blog-read">Read More →</a>`:'<span class="blog-read">Coming Soon</span>'}</div></div>`;grid.appendChild(card);});}
+async function loadBlogFromSupabase(){try{const res=await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/blogs?order=date.desc`,{headers:{...HEADERS,'Content-Type':'application/json'}});if(!res.ok)return;const posts=await res.json();if(Array.isArray(posts)&&posts.length){blogPosts=posts;renderBlog();}}catch(e){console.log('Blog load error:',e);}}
 
-  const headers = {
-    "apikey": CONFIG.SUPABASE_ANON_KEY,
-    "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`,
-    "Content-Type": blob.type,
-    "x-upsert": "true"
-  };
+// BOOKING
+const pricing={'AI Consulting & Strategy':{30:5000,60:10000},'AI Workflow Automations (n8n)':{30:999,60:1998},'AI Agents & RAG Pipelines':{30:5000,60:10000},'Chatbots & Voice Assistants':{30:999,60:1998},'Career Guidance & AI Mentoring':{30:750,60:1500},'Holistic Wellbeing Coaching':{30:1000,60:2000},'Personalized AI Roadmap':{30:1999,60:3998}};
+function updatePrice(){const sel=document.getElementById('serviceSelect');const opt=sel.options[sel.selectedIndex];const dur=document.getElementById('durationSelect').value;const pd=document.getElementById('priceDisplay');if(opt.value&&dur&&pricing[opt.value]){const amt=pricing[opt.value][parseInt(dur)];document.getElementById('priceAmount').textContent='₹'+amt.toLocaleString('en-IN');document.getElementById('priceMeta').textContent=opt.value+' · '+dur+' mins';pd.style.display='block';}else pd.style.display='none';}
+function getCurrentPrice(){const sel=document.getElementById('serviceSelect');const dur=parseInt(document.getElementById('durationSelect').value)||0;return pricing[sel.value]?.[dur]||0;}
+function openBooking(){document.getElementById('bookingModal').classList.add('active');goToStep(1);}
+function closeModal(){document.getElementById('bookingModal').classList.remove('active');}
+function openBookingWithService(svc){openBooking();setTimeout(()=>{document.getElementById('serviceSelect').value=svc;updatePrice();},80);}
+function goToStep(n){[1,2,3].forEach(i=>{document.getElementById('step'+i).classList.toggle('hidden',i!==n);document.getElementById('dot'+i).classList.toggle('active',i<=n);});}
+function showAlert(id,msg,type){const el=document.getElementById(id);el.textContent=msg;el.className='alert-box '+type;}
+function clearAlert(id){document.getElementById(id).className='alert-box';}
+function proceedToPayment(){clearAlert('formAlert');const name=document.getElementById('clientName').value.trim();const phone=document.getElementById('clientPhone').value.trim();const email=document.getElementById('clientEmail').value.trim();const svc=document.getElementById('serviceSelect').value;const dur=document.getElementById('durationSelect').value;const prof=document.getElementById('clientProfession').value.trim();if(!name||!phone||!email||!svc||!dur){showAlert('formAlert','⚠️ Please fill in all required fields.','error');return;}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showAlert('formAlert','⚠️ Please enter a valid email address.','error');return;}const amt=getCurrentPrice();document.getElementById('summaryBox').innerHTML=`<span style="color:var(--gold)">👤 Name:</span> ${name}<br><span style="color:var(--gold)">📱 Phone:</span> ${phone}<br><span style="color:var(--gold)">📧 Email:</span> ${email}<br>${prof?`<span style="color:var(--gold)">💼 Profession:</span> ${prof}<br>`:''}<span style="color:var(--gold)">🎯 Service:</span> ${svc}<br><span style="color:var(--gold)">⏱ Duration:</span> ${dur} mins<br><span style="color:var(--gold)">💰 Amount:</span> ₹${amt.toLocaleString('en-IN')}`;document.getElementById('payAmountBig').textContent='₹'+amt.toLocaleString('en-IN');goToStep(2);}
+function onTxnInput(){const txn=document.getElementById('transactionId').value.trim();const banner=document.getElementById('payConfirmBanner');if(txn.length>=6){document.getElementById('bannerAmount').textContent='₹'+getCurrentPrice().toLocaleString('en-IN');banner.classList.add('show');}else banner.classList.remove('show');}
+async function confirmBooking(){clearAlert('payAlert');const txn=document.getElementById('transactionId').value.trim();if(!txn){showAlert('payAlert','⚠️ Please enter your UPI Transaction ID.','error');return;}const name=document.getElementById('clientName').value.trim();const phone=document.getElementById('clientPhone').value.trim();const email=document.getElementById('clientEmail').value.trim();const svc=document.getElementById('serviceSelect').value;const dur=document.getElementById('durationSelect').value;const prof=document.getElementById('clientProfession').value.trim();const amt=getCurrentPrice();const ref='ZW-'+Date.now().toString().slice(-8);const btn=document.getElementById('confirmBtn');btn.disabled=true;btn.textContent='Processing…';try{await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/Bookings`,{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({'ref':ref,'Name':name,'Phone#':phone,'email':email,'Profession':prof,'Service':svc,'Duration_mins':Number(dur),'Amount':amt,'transaction_id':txn,'booked_at':new Date().toISOString(),'status':'confirmed','Payment_Done':true,'Message':`Booking via portfolio. Service: ${svc}`})});}catch(e){console.warn('Supabase error:',e);}if(emailReady()){try{await emailjs.send(CONFIG.EMAILJS_SERVICE_ID,CONFIG.EMAILJS_TEMPLATE_ID,{to_name:name,to_email:email,cc_email:CONFIG.OWNER_EMAIL_2,service:svc,duration:dur+' mins',amount:'₹'+amt.toLocaleString('en-IN'),txn_id:txn,booking_ref:ref,reply_to:CONFIG.OWNER_EMAIL_1});}catch(e){console.warn('EmailJS error:',e);}}document.getElementById('confirmMsg').textContent=`Thank you, ${name}! Your session is confirmed.`;document.getElementById('confirmDetails').innerHTML=`<span style="color:var(--gold)">📋 Ref:</span> ${ref}<br><span style="color:var(--gold)">👤 Name:</span> ${name}<br><span style="color:var(--gold)">📧 Email:</span> ${email}<br><span style="color:var(--gold)">🎯 Service:</span> ${svc}<br><span style="color:var(--gold)">⏱ Duration:</span> ${dur} mins<br><span style="color:var(--gold)">💰 Paid:</span> ₹${amt.toLocaleString('en-IN')}<br><span style="color:var(--gold)">🧾 Txn ID:</span> ${txn}`;btn.disabled=false;btn.textContent='✅ Confirm Booking';goToStep(3);}
+function uploadQR(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=document.getElementById('phonePeQR');img.src=ev.target.result;img.style.display='block';document.getElementById('qrPlaceholder').style.display='none';};r.readAsDataURL(f);}
 
-  try {
-    let res = await fetch(url, { method: "POST", headers, body: blob });
-    console.log("POST response status:", res.status);
-    if (!res.ok && (res.status === 409 || res.status === 400)) {
-      res = await fetch(url, { method: "PUT", headers, body: blob });
-      console.log("PUT response status:", res.status);
-    }
-    if (!res.ok) {
-      const errText = await res.text();
-      console.error(`Upload failed [${res.status}]:`, errText);
-      throw new Error(`Upload failed ${res.status}: ${errText}`);
-    }
-    const publicUrl = `${CONFIG.SUPABASE_URL}/storage/v1/object/public/${bucket}/${path}`;
-    console.log("Upload success! URL:", publicUrl);
-    return publicUrl;
-  } catch(fetchErr) {
-    console.error("Fetch error details:", fetchErr.name, fetchErr.message);
-    // Test if Supabase is reachable at all
-    try {
-      const ping = await fetch(`${CONFIG.SUPABASE_URL}/storage/v1/bucket`, {
-        headers: { "apikey": CONFIG.SUPABASE_ANON_KEY, "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}` }
-      });
-      console.log("Supabase ping status:", ping.status);
-    } catch(pingErr) {
-      console.error("Supabase unreachable:", pingErr.message);
-    }
-    throw fetchErr;
-  }
-}
-
-async function listSupabaseFiles(bucket) {
-  const res = await fetch(`${STORAGE}/object/list/${bucket}`, {
-    method: 'POST',
-    headers: { ...HEADERS, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prefix: '', limit: 100, offset: 0, sortBy: { column: 'created_at', order: 'asc' } })
-  });
-  if (!res.ok) return [];
-  const files = await res.json();
-  return (Array.isArray(files) ? files : []).map(f => ({
-    src: `${STORAGE}/object/public/${bucket}/${f.name}`,
-    name: f.name
-  }));
-}
-
-// ============================================================
-// PROFILE PIC
-// ============================================================
-async function uploadProfilePic(e) {
-  const f = e.target.files[0];
-  e.target.value = '';
-  if (!f) return;
-  const ph = document.getElementById('profilePlaceholder');
-  const ppText = ph.querySelector('.pp-text');
-  ppText.textContent = '⏳ Uploading…';
-  try {
-    const url = await uploadToSupabase('profile', 'profile-photo', f);
-    showProfileImg(url + '?t=' + Date.now());
-  } catch(err) {
-    console.error('Profile upload error:', err);
-    ppText.textContent = 'Upload failed. Please try again.';
-    alert('Upload failed: ' + err.message + '\n\nPlease check your internet connection and try again.');
-  }
-}
-
-function showProfileImg(url) {
-  document.getElementById('profileImg').src = url;
-  document.getElementById('profilePlaceholder').style.display = 'none';
-  document.getElementById('profileImgWrap').style.display = 'block';
-}
-
-// ============================================================
-// SUPABASE STORAGE — load using direct public URLs (no fetch needed)
-// ============================================================
-const PUBLIC_URL = `${CONFIG.SUPABASE_URL}/storage/v1/object/public`;
-
-async function loadProfileFromSupabase() {
-  // Direct public URL — no fetch/CORS needed, works like a normal image src
-  const url = `${PUBLIC_URL}/profile/profile-photo?t=${Date.now()}`;
-  const img = new Image();
-  img.onload = () => showProfileImg(url);
-  img.onerror = () => console.log('No profile photo yet');
-  img.src = url;
-}
-
-// ============================================================
-// DELETE FUNCTIONS
-// ============================================================
-let deleteTarget = null; // { type: 'profile' | 'gallery', idx, name }
-let pendingReplaceTarget = null; // { idx, name } — set when replacing a specific gallery photo
-
-// ── Right-click context menu ──────────────────────────────
-const ctxMenu = (() => {
-  const el = document.createElement('div');
-  el.className = 'photo-context-menu';
-  el.id = 'photoCtxMenu';
-  el.innerHTML = `<button id="ctxDeleteBtn">🔄 Replace Photo</button>`;
-  document.body.appendChild(el);
-  // Hide on any outside click
-  document.addEventListener('click', () => el.classList.remove('show'));
-  document.addEventListener('contextmenu', () => el.classList.remove('show'));
-  return el;
-})();
-
-function showPhotoContextMenu(e, type, idx, name) {
-  e.preventDefault();
-  e.stopPropagation();
-  const menu = document.getElementById('photoCtxMenu');
-  // Position near cursor, keep inside viewport
-  const x = Math.min(e.clientX, window.innerWidth - 180);
-  const y = Math.min(e.clientY, window.innerHeight - 60);
-  menu.style.left = x + 'px';
-  menu.style.top  = y + 'px';
-  menu.classList.add('show');
-  document.getElementById('ctxDeleteBtn').onclick = (ev) => {
-    ev.stopPropagation();
-    menu.classList.remove('show');
-    // Store the existing filename so upload overwrites it (x-upsert: true handles the rest)
-    pendingReplaceTarget = { idx, name };
-    pendingTarget = 'gallery';
-    document.getElementById('pwdInput').value = '';
-    document.getElementById('pwdError').classList.remove('show');
-    document.getElementById('pwdModal').classList.add('active');
-    document.getElementById('pwdInput').focus();
-  };
-}
-
-// Attach right-click to profile image
-document.addEventListener('DOMContentLoaded', () => {
-  const profileImg = document.getElementById('profileImg');
-  if (profileImg) {
-    profileImg.addEventListener('contextmenu', (e) => {
-      const wrap = document.getElementById('profileImgWrap');
-      if (wrap && wrap.style.display !== 'none') {
-        showPhotoContextMenu(e, 'profile', null, 'profile-photo');
-      }
-    });
-  }
-});
-
-function openDeleteModal(type, idx, name) {
-  deleteTarget = { type, idx, name };
-  pendingTarget = 'delete';
-  document.getElementById('pwdInput').value = '';
-  document.getElementById('pwdError').classList.remove('show');
-  document.getElementById('pwdModal').classList.add('active');
-  document.getElementById('pwdInput').focus();
-}
-
-async function deleteFromSupabase(bucket, path) {
-  const url = `${STORAGE}/object/${bucket}/${path}`;
-  const res = await fetch(url, {
-    method: 'DELETE',
-    headers: {
-      'apikey': CONFIG.SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
-    }
-  });
-  if (!res.ok) {
-    const errText = await res.text();
-    throw new Error(`Delete failed ${res.status}: ${errText}`);
-  }
-}
-
-async function executeDelete() {
-  if (!deleteTarget) return;
-  const { type, idx, name } = deleteTarget;
-  try {
-    if (type === 'gallery') {
-      await deleteFromSupabase('gallery', name);
-      galleryPhotos.splice(idx, 1);
-      renderGallery();
-    } else if (type === 'profile') {
-      await deleteFromSupabase('profile', 'profile-photo');
-      document.getElementById('profileImg').src = '';
-      document.getElementById('profileImgWrap').style.display = 'none';
-      document.getElementById('profilePlaceholder').style.display = 'flex';
-      document.getElementById('profilePlaceholder').querySelector('.pp-text').textContent = 'Click to upload your profile photo';
-    }
-    deleteTarget = null;
-  } catch(err) {
-    console.error('Delete error:', err);
-    alert('Delete failed: ' + err.message);
-  }
-}
-
-
-
-async function uploadGallery(e) {
-  const files = Array.from(e.target.files);
-  e.target.value = '';
-  if (!files.length) return;
-  const btn = document.querySelector('.edit-gallery-btn');
-  btn.textContent = '⏳ Uploading…';
-
-  if (pendingReplaceTarget) {
-    // Replace mode — overwrite the specific existing photo
-    const { idx, name } = pendingReplaceTarget;
-    pendingReplaceTarget = null;
-    const f = files[0]; // only use first file when replacing
-    try {
-      await uploadToSupabase('gallery', name, f);
-      // Reload from Supabase so replaced photo shows correctly
-      await loadGalleryFromSupabase();
-    } catch(err) { console.error('Gallery replace error:', err); }
-  } else {
-    // Normal upload — add new photo(s)
-    for (const f of files) {
-      const safeName = Date.now() + '_' + f.name.replace(/\s+/g,'_');
-      try {
-        const url = await uploadToSupabase('gallery', safeName, f);
-        galleryPhotos.push({ src: url, name: safeName });
-      } catch(err) { console.error('Gallery upload error:', err); }
-    }
-  }
-
-  btn.innerHTML = '✏️ Edit Gallery <span style="font-size:.7rem;color:var(--muted)">(Single or Multiple)</span>';
-  renderGallery();
-}
-
-function renderGallery() {
-  const track = document.getElementById('galleryTrack');
-  track.innerHTML = '';
-  if (!galleryPhotos.length) {
-    Array(6).fill(null).forEach(() => {
-      const s = document.createElement('div');
-      s.className = 'gallery-slot placeholder-slot';
-      s.innerHTML = '<div class="ph-icon">🖼️</div><span>Add Photo</span>';
-      track.appendChild(s);
-    });
-    return;
-  }
-  // First pass: real photos with right-click replace; second pass: duplicates for seamless scroll
-  galleryPhotos.forEach((p, idx) => {
-    const s = document.createElement('div'); s.className = 'gallery-slot';
-    const img = document.createElement('img'); img.src = p.src; img.alt = p.name;
-    const lbl = document.createElement('div'); lbl.className = 'slot-label';
-    lbl.textContent = p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');
-    s.appendChild(img);
-    s.appendChild(lbl);
-    track.appendChild(s);
-    s.addEventListener('contextmenu', (e) => { e.preventDefault(); showPhotoContextMenu(e, 'gallery', idx, p.name); });
-  });
-  // Duplicate for seamless loop (no right-click on duplicates)
-  galleryPhotos.forEach(p => {
-    const s = document.createElement('div'); s.className = 'gallery-slot';
-    const img = document.createElement('img'); img.src = p.src; img.alt = p.name;
-    const lbl = document.createElement('div'); lbl.className = 'slot-label';
-    lbl.textContent = p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');
-    s.appendChild(img); s.appendChild(lbl); track.appendChild(s);
-  });
-}
-
-async function loadGalleryFromSupabase() {
-  try {
-    galleryPhotos = await listSupabaseFiles('gallery');
-    if (galleryPhotos.length) renderGallery();
-  } catch(e) { console.log('No gallery photos yet'); }
-}
-
-// ============================================================
-// BOOKING MODAL
-// ============================================================
-const pricing = {
-  'AI Consulting & Strategy':       {30:5000,  60:10000},
-  'AI Workflow Automations (n8n)':  {30:999,   60:1998},
-  'AI Agents & RAG Pipelines':      {30:5000,  60:10000},
-  'Chatbots & Voice Assistants':    {30:999,   60:1998},
-  'Career Guidance & AI Mentoring': {30:750,   60:1500},
-  'Holistic Wellbeing Coaching':    {30:1000,  60:2000},
-  'Personalized AI Roadmap':        {30:1999,  60:3998},
-};
-
-function updatePrice() {
-  const sel = document.getElementById('serviceSelect');
-  const opt = sel.options[sel.selectedIndex];
-  const dur = document.getElementById('durationSelect').value;
-  const pd  = document.getElementById('priceDisplay');
-  if (opt.value && dur && pricing[opt.value]) {
-    const amt = pricing[opt.value][parseInt(dur)];
-    document.getElementById('priceAmount').textContent = '₹' + amt.toLocaleString('en-IN');
-    document.getElementById('priceMeta').textContent   = opt.value + ' · ' + dur + ' mins';
-    pd.style.display = 'block';
-  } else { pd.style.display = 'none'; }
-}
-
-function getCurrentPrice() {
-  const sel = document.getElementById('serviceSelect');
-  const dur = parseInt(document.getElementById('durationSelect').value)||0;
-  return pricing[sel.value]?.[dur] || 0;
-}
-
-function openBooking()  { document.getElementById('bookingModal').classList.add('active'); goToStep(1); }
-function closeModal()   { document.getElementById('bookingModal').classList.remove('active'); }
-function openBookingWithService(svc) { openBooking(); setTimeout(()=>{ document.getElementById('serviceSelect').value=svc; updatePrice(); },80); }
-
-function goToStep(n) {
-  [1,2,3].forEach(i => {
-    document.getElementById('step'+i).classList.toggle('hidden', i!==n);
-    document.getElementById('dot'+i).classList.toggle('active', i<=n);
-  });
-}
-function showAlert(id,msg,type){ const el=document.getElementById(id); el.textContent=msg; el.className='alert-box '+type; }
-function clearAlert(id){ document.getElementById(id).className='alert-box'; }
-
-function proceedToPayment() {
-  clearAlert('formAlert');
-  const name  = document.getElementById('clientName').value.trim();
-  const phone = document.getElementById('clientPhone').value.trim();
-  const email = document.getElementById('clientEmail').value.trim();
-  const svc   = document.getElementById('serviceSelect').value;
-  const dur   = document.getElementById('durationSelect').value;
-  const prof  = document.getElementById('clientProfession').value.trim();
-  if (!name||!phone||!email||!svc||!dur) { showAlert('formAlert','⚠️ Please fill in all required fields.','error'); return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showAlert('formAlert','⚠️ Please enter a valid email address.','error'); return; }
-  const amt = getCurrentPrice();
-  document.getElementById('summaryBox').innerHTML =
-    `<span style="color:var(--gold)">👤 Name:</span> ${name}<br>`+
-    `<span style="color:var(--gold)">📱 Phone:</span> ${phone}<br>`+
-    `<span style="color:var(--gold)">📧 Email:</span> ${email}<br>`+
-    (prof?`<span style="color:var(--gold)">💼 Profession:</span> ${prof}<br>`:'')+
-    `<span style="color:var(--gold)">🎯 Service:</span> ${svc}<br>`+
-    `<span style="color:var(--gold)">⏱ Duration:</span> ${dur} mins<br>`+
-    `<span style="color:var(--gold)">💰 Amount:</span> ₹${amt.toLocaleString('en-IN')}`;
-  document.getElementById('payAmountBig').textContent = '₹'+amt.toLocaleString('en-IN');
-  goToStep(2);
-}
-
-function onTxnInput() {
-  const txn = document.getElementById('transactionId').value.trim();
-  const banner = document.getElementById('payConfirmBanner');
-  if (txn.length >= 6) {
-    document.getElementById('bannerAmount').textContent = '₹'+getCurrentPrice().toLocaleString('en-IN');
-    banner.classList.add('show');
-  } else { banner.classList.remove('show'); }
-}
-
-async function confirmBooking() {
-  clearAlert('payAlert');
-  const txn = document.getElementById('transactionId').value.trim();
-  if (!txn) { showAlert('payAlert','⚠️ Please enter your UPI Transaction ID.','error'); return; }
-  const name  = document.getElementById('clientName').value.trim();
-  const phone = document.getElementById('clientPhone').value.trim();
-  const email = document.getElementById('clientEmail').value.trim();
-  const svc   = document.getElementById('serviceSelect').value;
-  const dur   = document.getElementById('durationSelect').value;
-  const prof  = document.getElementById('clientProfession').value.trim();
-  const amt   = getCurrentPrice();
-  const ref   = 'ZW-'+Date.now().toString().slice(-8);
-  const btn   = document.getElementById('confirmBtn');
-  btn.disabled=true; btn.textContent='Processing…';
-  try {
-    await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/Bookings`, {
-      method:'POST',
-      headers:{'Content-Type':'application/json','apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({'ref':ref,'Name':name,'Phone#':phone,'email':email,'Profession':prof,'Service':svc,'Duration_mins':Number(dur),'Amount':amt,'transaction_id':txn,'booked_at':new Date().toISOString(),'status':'confirmed','Payment_Done':true,'Message':`Booking via portfolio. Service: ${svc}`})
-    });
-  } catch(e){ console.warn('Supabase error:',e); }
-  if (emailReady()) {
-    try { await emailjs.send(CONFIG.EMAILJS_SERVICE_ID,CONFIG.EMAILJS_TEMPLATE_ID,{to_name:name,to_email:email,cc_email:CONFIG.OWNER_EMAIL_2,service:svc,duration:dur+' mins',amount:'₹'+amt.toLocaleString('en-IN'),txn_id:txn,booking_ref:ref,reply_to:CONFIG.OWNER_EMAIL_1}); }
-    catch(e){ console.warn('EmailJS error:',e); }
-  }
-  document.getElementById('confirmMsg').textContent=`Thank you, ${name}! Your session is confirmed.`;
-  document.getElementById('confirmDetails').innerHTML=
-    `<span style="color:var(--gold)">📋 Ref:</span> ${ref}<br>`+
-    `<span style="color:var(--gold)">👤 Name:</span> ${name}<br>`+
-    `<span style="color:var(--gold)">📧 Email:</span> ${email}<br>`+
-    `<span style="color:var(--gold)">🎯 Service:</span> ${svc}<br>`+
-    `<span style="color:var(--gold)">⏱ Duration:</span> ${dur} mins<br>`+
-    `<span style="color:var(--gold)">💰 Paid:</span> ₹${amt.toLocaleString('en-IN')}<br>`+
-    `<span style="color:var(--gold)">🧾 Txn ID:</span> ${txn}`;
-  btn.disabled=false; btn.textContent='✅ Confirm Booking';
-  goToStep(3);
-}
-
-function uploadQR(e) {
-  const f=e.target.files[0]; if(!f)return;
-  const r=new FileReader();
-  r.onload=ev=>{ const img=document.getElementById('phonePeQR'); img.src=ev.target.result; img.style.display='block'; document.getElementById('qrPlaceholder').style.display='none'; };
-  r.readAsDataURL(f);
-}
-
-// ============================================================
-// INIT on DOM ready
-// ============================================================
-document.addEventListener('DOMContentLoaded', () => {
+// INIT
+document.addEventListener('DOMContentLoaded',()=>{
   loadProfileFromSupabase();
   loadGalleryFromSupabase();
-  if (emailReady()) emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
-  // Close modals on backdrop click
-  document.getElementById('bookingModal').addEventListener('click', e => { if(e.target===document.getElementById('bookingModal')) closeModal(); });
-  document.getElementById('pwdModal').addEventListener('click', e => { if(e.target===document.getElementById('pwdModal')) closePwdModal(); });
-  // Scroll animations
+  loadBlogFromSupabase();
+  if(emailReady())emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
+  document.getElementById('bookingModal').addEventListener('click',e=>{if(e.target===document.getElementById('bookingModal'))closeModal();});
+  document.getElementById('pwdModal').addEventListener('click',e=>{if(e.target===document.getElementById('pwdModal'))closePwdModal();});
+  document.getElementById('blogModal').addEventListener('click',e=>{if(e.target===document.getElementById('blogModal'))closeBlogModal();});
   const obs=new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
   document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-  window.addEventListener('scroll',()=>{ document.querySelector('nav').style.background=window.scrollY>50?'rgba(10,12,20,0.97)':'rgba(10,12,20,0.92)'; });
+  window.addEventListener('scroll',()=>{document.querySelector('nav').style.background=window.scrollY>50?'rgba(10,12,20,0.97)':'rgba(10,12,20,0.92)';});
 });
 </script>
 
@@ -741,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#" onclick="openBooking();return false;" class="nav-book">Book Now</a></li>
   </ul>
@@ -766,27 +344,22 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <div class="hero-visual">
       <div style="position:relative">
-        <!-- Profile placeholder — click opens password modal -->
         <div id="profilePlaceholder" class="profile-placeholder" onclick="openPwdModal('profile')">
           <div class="pp-icon">👤</div>
           <div class="pp-text">Click to upload your profile photo</div>
           <div class="pp-btn-label">🔒 Click to Upload Photo</div>
         </div>
-        <!-- Profile image shown after upload -->
         <div id="profileImgWrap" style="position:relative;display:none;width:340px;height:400px">
           <img id="profileImg" src="" alt="Sridevi Edupuganti" style="width:100%;height:100%;object-fit:cover;border-radius:4px"/>
-
           <div class="hero-img-border"></div>
           <div class="hero-badge"><strong>🏆 Guinness WR</strong>Microsoft AI Fest</div>
           <div class="floating-cert">🎓 IIT-G · ISB · Azure 5×</div>
-          <!-- Change photo overlay -->
           <div onclick="openPwdModal('profile')" style="position:absolute;inset:0;border-radius:4px;background:rgba(0,0,0,0.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transition:opacity .3s;cursor:pointer;z-index:2" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
             <div style="font-size:2rem;pointer-events:none">📷</div>
             <div style="font-size:.85rem;color:#fff;font-weight:600;pointer-events:none">Change Photo</div>
             <div style="font-size:.72rem;color:var(--gold);background:rgba(201,168,76,0.15);border:1px solid var(--border);padding:5px 14px;border-radius:3px;pointer-events:none">Click to Upload New</div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -888,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="hscroll-track fast">
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">I feel so happy and grateful to find a mentor who patiently listens and gives valuable insights. Money invested is very less compared to the services provided.</p><div class="testimonial-author">Pragathi Kondru</div><div class="testimonial-role">Mentee · Topmate</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">Ms Sridevi was very observant and gave practical guidance. She gave short-term and long-term action plans. Highly recommended mentor.</p><div class="testimonial-author">Biju Cherian</div><div class="testimonial-role">Mentee · Topmate</div></div>
-        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">My session was absolute clarity forward. One simple solution helped me structure my entire new direction in AI strategy. Truly appreciate your time.</p><div class="testimonial-author">Riddhi Desai</div><div class="testimonial-role">Mentee · AI Strategy</div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">My session was absolute clarity forward. One simple solution helped me structure my entire new direction in AI strategy.</p><div class="testimonial-author">Riddhi Desai</div><div class="testimonial-role">Mentee · AI Strategy</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">Sridevi, I loved talking to you. So insightful and inspiring. I will definitely want to work with you to take my career forward.</p><div class="testimonial-author">Viswapani</div><div class="testimonial-role">Mentee · Topmate</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">I joined with lots of confusion in mind. Sridevi provided clarity on the path I can follow. No preaching, pure practical advice.</p><div class="testimonial-author">IT Professional</div><div class="testimonial-role">Mentee · Career Transition</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">Very useful session. Clear, concise, and actionable. Exactly what I needed to understand the practical side of AI adoption.</p><div class="testimonial-author">Prathyusha G.</div><div class="testimonial-role">Mentee · Topmate</div></div>
@@ -898,25 +471,41 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <p style="color:var(--gold);font-size:.8rem;margin:32px 0 16px;letter-spacing:.5px">🔗 LINKEDIN RECOMMENDATIONS</p>
     <div class="hscroll-wrap">
-      <div class="hscroll-track slow" id="recsTrack">
+      <div class="hscroll-track slow">
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">HM</div><div><div class="rec-name">Haroharan Mjlaraiah</div><div class="rec-title">Senior AI</div><div class="rec-company">Saxon AI</div></div></div><p class="rec-text">"She impressed me with her deep expertise in Cloud Data Storage, Infrastructure Management, and optimization. A constant learner, always staying ahead of industry trends."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">SA</div><div><div class="rec-name">Susanna Are</div><div class="rec-title">Sr. Technical Advisor</div><div class="rec-company">Microsoft</div></div></div><p class="rec-text">"Sri's deeply caring guidance, excellent management skills, and remarkable empathetic nature are a great inspiration. She demonstrates professionalism in all aspects."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">NI</div><div><div class="rec-name">Narayanan Iyer</div><div class="rec-title">Head of GTM, APAC</div><div class="rec-company">SAP</div></div></div><p class="rec-text">"Sridevi has the ability to coordinate complex assignments across multiple organization functions. Excellent organizing abilities and takes full accountability."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">VG</div><div><div class="rec-name">Vipin Gulati</div><div class="rec-title">Principal Product Manager</div><div class="rec-company">Microsoft</div></div></div><p class="rec-text">"Sridevi is highly meticulous, result-oriented, and self-driven. Her energy and passion towards work is absolutely contagious and has enormous positive impact on others."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">GK</div><div><div class="rec-name">Gopi Kandukuri</div><div class="rec-title">Chief Executive Officer</div><div class="rec-company">Saxon AI</div></div></div><p class="rec-text">"Constantly improving her technical skills: providing technical solutions to complex problems, mentoring and coaching her team. She is a great asset to any organization."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">VG</div><div><div class="rec-name">Vipin Gulati</div><div class="rec-title">Principal Product Manager</div><div class="rec-company">Microsoft</div></div></div><p class="rec-text">"Sridevi is highly meticulous, result-oriented, and self-driven. Her energy and passion is absolutely contagious and has enormous positive impact on others."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">GK</div><div><div class="rec-name">Gopi Kandukuri</div><div class="rec-title">Chief Executive Officer</div><div class="rec-company">Saxon AI</div></div></div><p class="rec-text">"Constantly improving her technical skills: providing technical solutions to complex problems, mentoring and coaching her team. A great asset to any organization."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">MG</div><div><div class="rec-name">Muthukumar Gopalan</div><div class="rec-title">Associate Director – Customer Success</div><div class="rec-company">Neuralem</div></div></div><p class="rec-text">"Sridevi sets the benchmark for being a hard worker and great Mentor — superior quality of work and unending commitment from inception to closure."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">RN</div><div><div class="rec-name">Ravindra Nurukurthi</div><div class="rec-title">Delivery Associate Director</div><div class="rec-company">NTT DATA</div></div></div><p class="rec-text">"An empathy driven leader with a unique blend of delivery focus, strong technical prowess, creativity and people management skills that inspire others."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">KT</div><div><div class="rec-name">Kavitha Thonangi</div><div class="rec-title">Executive Manager</div><div class="rec-company">Deloitte</div></div></div><p class="rec-text">"Sridevi is highly committed to her work. She puts in nothing short of her best efforts with amazing infectious enthusiasm that keeps her team motivated and charged."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">RV</div><div><div class="rec-name">Ramakrishna Vedantam</div><div class="rec-title">Senior Consultant</div><div class="rec-company">TCS</div></div></div><p class="rec-text">"Very sharp and detail oriented. Her command over DBMS topics is 10 on 10. Her contribution to Oracle DBA community in Satyam is always talked about with appreciation."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">BB</div><div><div class="rec-name">Bantwal Mahes Baliga</div><div class="rec-title">Sr. Database Manager</div><div class="rec-company">The Hartford</div></div></div><p class="rec-text">"I know Sridevi for 15 years — excellent in communication and resource planning, very proactive, responsive, with in-depth knowledge in Oracle performance tuning."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">BB</div><div><div class="rec-name">Bantwal Mahes Baliga</div><div class="rec-title">Sr. Database Manager</div><div class="rec-company">The Hartford</div></div></div><p class="rec-text">"I know Sridevi for 15 years — excellent in communication, very proactive, responsive, with in-depth knowledge in Oracle performance tuning."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">VP</div><div><div class="rec-name">VidnyaCharan Puvvula</div><div class="rec-title">Head of Bus. Dev., GTM</div><div class="rec-company">Capgemini</div></div></div><p class="rec-text">"One of those rare associates with niche skills in deep subject knowledge, team managing abilities, attention to details and quick learner — a multi-facet professional."</p></div>
-        <!-- duplicates for loop -->
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">HM</div><div><div class="rec-name">Haroharan Mjlaraiah</div><div class="rec-title">Senior AI</div><div class="rec-company">Saxon AI</div></div></div><p class="rec-text">"She impressed me with her deep expertise in Cloud Data Storage, Infrastructure Management, and optimization. A constant learner, always staying ahead of industry trends."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">SA</div><div><div class="rec-name">Susanna Are</div><div class="rec-title">Sr. Technical Advisor</div><div class="rec-company">Microsoft</div></div></div><p class="rec-text">"Sri's deeply caring guidance, excellent management skills, and remarkable empathetic nature are a great inspiration. She demonstrates professionalism in all aspects."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">MG</div><div><div class="rec-name">Muthukumar Gopalan</div><div class="rec-title">Associate Director – Customer Success</div><div class="rec-company">Neuralem</div></div></div><p class="rec-text">"Sridevi sets the benchmark for being a hard worker and great Mentor — superior quality of work and unending commitment from inception to closure."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">SA</div><div><div class="rec-name">Susanna Are</div><div class="rec-title">Sr. Technical Advisor</div><div class="rec-company">Microsoft</div></div></div><p class="rec-text">"Sri's deeply caring guidance, excellent management skills, and remarkable empathetic nature are a great inspiration."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">MG</div><div><div class="rec-name">Muthukumar Gopalan</div><div class="rec-title">Associate Director</div><div class="rec-company">Neuralem</div></div></div><p class="rec-text">"Sridevi sets the benchmark for being a hard worker and great Mentor — superior quality of work and unending commitment from inception to closure."</p></div>
       </div>
     </div>
     <p style="text-align:center;margin-top:16px;font-size:.78rem;color:var(--muted)">⭐ 24 verified LinkedIn recommendations · Hover to pause</p>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-inner">
+    <div class="blog-header">
+      <div><div class="section-tag">Insights & Articles</div><h2 class="section-title">My <em>Blog</em></h2></div>
+      <button class="add-blog-btn" onclick="openPwdModal('blog')">✍️ Add Blog Post</button>
+    </div>
+    <div class="section-line"></div>
+    <div class="blog-grid" id="blogGrid">
+      <div class="blog-placeholder" style="grid-column:1/-1">
+        <div class="bp-icon">✍️</div>
+        <p>Blog posts coming soon!<br>Click <strong style="color:var(--gold)">✍️ Add Blog Post</strong> to publish your first article.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1029,6 +618,25 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
+<!-- BLOG MODAL -->
+<div id="blogModal" class="blog-modal-overlay">
+  <div class="blog-modal">
+    <div class="blog-modal-header">
+      <h2>✍️ Add Blog Post</h2>
+      <button class="modal-close" onclick="closeBlogModal()">✕</button>
+    </div>
+    <div class="blog-modal-body">
+      <div class="bform-group"><label>Title *</label><input type="text" id="blogTitle" placeholder="e.g. How AI is Transforming Healthcare in 2026"/></div>
+      <div class="bform-group"><label>Category *</label><select id="blogCategory"><option>AI & Automation</option><option>Career & Mentoring</option><option>Cloud & Tech</option><option>Wellbeing</option><option>Leadership</option><option>General</option></select></div>
+      <div class="bform-group"><label>Excerpt / Summary *</label><textarea id="blogExcerpt" rows="4" placeholder="A brief summary of your blog post (2-3 sentences)..."></textarea></div>
+      <div class="bform-group"><label>Blog URL (optional)</label><input type="url" id="blogUrl" placeholder="https://medium.com/your-article or leave blank"/></div>
+      <div class="bform-group"><label>Date</label><input type="date" id="blogDate"/></div>
+      <button class="form-btn" onclick="saveBlogPost()">✅ Publish Blog Post</button>
+      <button onclick="closeBlogModal()" style="width:100%;background:none;border:1px solid var(--border);color:var(--muted);padding:11px;border-radius:4px;cursor:pointer;margin-top:10px;font-size:.85rem">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <!-- BOOKING MODAL -->
 <div class="modal-overlay" id="bookingModal">
   <div class="modal">
@@ -1037,88 +645,42 @@ document.addEventListener('DOMContentLoaded', () => {
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-      <div class="step-indicator">
-        <div class="step-dot active" id="dot1"></div>
-        <div class="step-dot" id="dot2"></div>
-        <div class="step-dot" id="dot3"></div>
-      </div>
-      <!-- STEP 1 -->
+      <div class="step-indicator"><div class="step-dot active" id="dot1"></div><div class="step-dot" id="dot2"></div><div class="step-dot" id="dot3"></div></div>
       <div class="booking-step" id="step1">
         <div id="formAlert" class="alert-box"></div>
         <div class="form-group"><label>Full Name *</label><input type="text" id="clientName" placeholder="e.g. Priya Sharma"/></div>
         <div class="form-group"><label>Phone Number *</label><input type="tel" id="clientPhone" placeholder="e.g. +91 98765 43210"/></div>
         <div class="form-group"><label>Email Address *</label><input type="email" id="clientEmail" placeholder="e.g. priya@example.com"/></div>
         <div class="form-group"><label>Your Profession</label><input type="text" id="clientProfession" placeholder="e.g. Software Engineer, CTO, Student..."/></div>
-        <div class="form-group">
-          <label>Select Service *</label>
-          <select id="serviceSelect" onchange="updatePrice()">
-            <option value="">-- Choose a Service --</option>
-            <option value="AI Consulting & Strategy">AI Consulting & Strategy</option>
-            <option value="AI Workflow Automations (n8n)">AI Workflow Automations (n8n)</option>
-            <option value="AI Agents & RAG Pipelines">AI Agents & RAG Pipelines</option>
-            <option value="Chatbots & Voice Assistants">Chatbots & Voice Assistants</option>
-            <option value="Career Guidance & AI Mentoring">Career Guidance & AI Mentoring</option>
-            <option value="Holistic Wellbeing Coaching">Holistic Wellbeing Coaching</option>
-            <option value="Personalized AI Roadmap">Personalized AI Roadmap</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Duration *</label>
-          <select id="durationSelect" onchange="updatePrice()">
-            <option value="">-- Select Duration --</option>
-            <option value="30">30 Minutes</option>
-            <option value="60">1 Hour</option>
-          </select>
-        </div>
-        <div class="price-display" id="priceDisplay">
-          <div class="price-label">Session Fee</div>
-          <div class="price-amount" id="priceAmount"></div>
-          <div style="font-size:.72rem;color:var(--muted);margin-top:4px" id="priceMeta"></div>
-        </div>
+        <div class="form-group"><label>Select Service *</label><select id="serviceSelect" onchange="updatePrice()"><option value="">-- Choose a Service --</option><option value="AI Consulting & Strategy">AI Consulting & Strategy</option><option value="AI Workflow Automations (n8n)">AI Workflow Automations (n8n)</option><option value="AI Agents & RAG Pipelines">AI Agents & RAG Pipelines</option><option value="Chatbots & Voice Assistants">Chatbots & Voice Assistants</option><option value="Career Guidance & AI Mentoring">Career Guidance & AI Mentoring</option><option value="Holistic Wellbeing Coaching">Holistic Wellbeing Coaching</option><option value="Personalized AI Roadmap">Personalized AI Roadmap</option></select></div>
+        <div class="form-group"><label>Duration *</label><select id="durationSelect" onchange="updatePrice()"><option value="">-- Select Duration --</option><option value="30">30 Minutes</option><option value="60">1 Hour</option></select></div>
+        <div class="price-display" id="priceDisplay"><div class="price-label">Session Fee</div><div class="price-amount" id="priceAmount"></div><div style="font-size:.72rem;color:var(--muted);margin-top:4px" id="priceMeta"></div></div>
         <button class="form-btn" onclick="proceedToPayment()">Proceed to Payment →</button>
       </div>
-      <!-- STEP 2 -->
       <div class="booking-step hidden" id="step2">
         <div id="summaryBox" style="background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:.83rem;margin-bottom:16px;line-height:1.9"></div>
         <div class="qr-section">
           <p style="font-size:.82rem;color:var(--muted);margin-bottom:8px">Scan to pay via <strong style="color:var(--gold)">PhonePe</strong></p>
-          <div id="qrPlaceholder" class="qr-placeholder" onclick="document.getElementById('qrUpload').click()">
-            <div style="font-size:2rem">📱</div>
-            <div style="font-size:.76rem;color:var(--muted);text-align:center">Click to upload<br>your PhonePe QR</div>
-            <div style="font-size:.72rem;color:var(--gold);background:rgba(201,168,76,0.1);padding:5px 12px;border-radius:3px;border:1px solid var(--border);margin-top:4px">Upload QR Image</div>
-          </div>
+          <div id="qrPlaceholder" class="qr-placeholder" onclick="document.getElementById('qrUpload').click()"><div style="font-size:2rem">📱</div><div style="font-size:.76rem;color:var(--muted);text-align:center">Click to upload<br>your PhonePe QR</div><div style="font-size:.72rem;color:var(--gold);background:rgba(201,168,76,0.1);padding:5px 12px;border-radius:3px;border:1px solid var(--border);margin-top:4px">Upload QR Image</div></div>
           <img id="phonePeQR" src="" alt="PhonePe QR" style="display:none;width:220px;height:220px;border-radius:8px;border:2px solid var(--border);margin:0 auto"/>
           <div class="pay-amount-big" id="payAmountBig"></div>
           <div class="payment-note">After payment, enter your UPI Transaction ID below to confirm.</div>
-          <div class="pay-confirm-banner" id="payConfirmBanner">
-            <strong>✅ Payment Recorded!</strong>
-            <p>Amount of <span id="bannerAmount"></span> noted. Click "Confirm Booking" below.</p>
-          </div>
+          <div class="pay-confirm-banner" id="payConfirmBanner"><strong>✅ Payment Recorded!</strong><p>Amount of <span id="bannerAmount"></span> noted. Click "Confirm Booking" below.</p></div>
         </div>
         <div class="form-group"><label>UPI Transaction ID / UTR *</label><input type="text" id="transactionId" placeholder="e.g. T2026060412345678" oninput="onTxnInput()"/></div>
         <div id="payAlert" class="alert-box"></div>
         <button class="form-btn" id="confirmBtn" onclick="confirmBooking()">✅ Confirm Booking</button>
         <button onclick="goToStep(1)" style="width:100%;background:none;border:1px solid var(--border);color:var(--muted);padding:11px;border-radius:4px;cursor:pointer;margin-top:10px;font-size:.83rem">← Back</button>
       </div>
-      <!-- STEP 3 -->
       <div class="booking-step hidden" id="step3">
-        <div class="confirm-step">
-          <div class="confirm-icon">🎉</div>
-          <h3>Booking Confirmed!</h3>
-          <p id="confirmMsg"></p>
-          <div class="confirm-details" id="confirmDetails"></div>
-          <p style="color:var(--gold);font-size:.82rem;margin-top:4px">📧 Confirmation email sent to your inbox.</p>
-          <p style="font-size:.76rem;color:var(--muted);margin-top:8px">Sridevi will reach out within 24 hours. For urgent queries: <a href="https://wa.me/917416643939" style="color:var(--gold)">WhatsApp</a></p>
-          <button class="form-btn" onclick="closeModal()" style="margin-top:20px">Close</button>
-        </div>
+        <div class="confirm-step"><div class="confirm-icon">🎉</div><h3>Booking Confirmed!</h3><p id="confirmMsg"></p><div class="confirm-details" id="confirmDetails"></div><p style="color:var(--gold);font-size:.82rem;margin-top:4px">📧 Confirmation email sent to your inbox.</p><p style="font-size:.76rem;color:var(--muted);margin-top:8px">Sridevi will reach out within 24 hours. For urgent queries: <a href="https://wa.me/917416643939" style="color:var(--gold)">WhatsApp</a></p><button class="form-btn" onclick="closeModal()" style="margin-top:20px">Close</button></div>
       </div>
     </div>
   </div>
 </div>
-<!-- Hidden file inputs — must be at body level for label trigger to work cross-browser -->
+
 <input type="file" id="profileInput" accept="image/*" style="display:none" onchange="uploadProfilePic(event)"/>
 <input type="file" id="galleryInput" accept="image/*" multiple style="display:none" onchange="uploadGallery(event)"/>
-<input type="file" id="qrUpload"     accept="image/*" style="display:none" onchange="uploadQR(event)"/>
-
+<input type="file" id="qrUpload" accept="image/*" style="display:none" onchange="uploadQR(event)"/>
 </body>
 </html>
