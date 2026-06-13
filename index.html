@@ -904,7 +904,11 @@ async function cbSendText(text) {
   try {
     const res = await fetch(cbWebhook, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify({
         query: { text: text },
         message: text,
