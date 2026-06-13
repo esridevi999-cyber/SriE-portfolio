@@ -110,27 +110,6 @@ section{padding:90px 6%}
 .rec-company{font-size:.72rem;color:var(--gold)}
 .rec-text{font-size:.82rem;color:var(--muted);line-height:1.7;font-style:italic}
 .li-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(10,102,194,0.15);border:1px solid rgba(10,102,194,0.3);border-radius:4px;padding:3px 8px;font-size:.7rem;color:#70A8D8;margin-bottom:10px}
-
-/* ── BLOG ── */
-#blog{background:var(--dark)}
-.blog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:12px}
-.add-blog-btn{background:rgba(201,168,76,0.12);border:1px solid var(--border);color:var(--gold);padding:10px 20px;border-radius:4px;font-size:.82rem;cursor:pointer;transition:.3s;display:flex;align-items:center;gap:8px}
-.add-blog-btn:hover{background:rgba(201,168,76,0.2);border-color:var(--gold)}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.blog-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s;cursor:pointer;display:flex;flex-direction:column}
-.blog-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.4)}
-.blog-card-img{width:100%;height:180px;object-fit:cover;background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--muted)}
-.blog-card-body{padding:20px;flex:1;display:flex;flex-direction:column}
-.blog-tag{font-size:.68rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.blog-card h3{font-size:.95rem;color:#fff;font-weight:600;margin-bottom:8px;line-height:1.4}
-.blog-card p{font-size:.82rem;color:var(--muted);line-height:1.6;flex:1}
-.blog-meta{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
-.blog-date{font-size:.72rem;color:var(--muted)}
-.blog-read{font-size:.72rem;color:var(--gold);font-weight:600}
-.blog-placeholder{background:var(--card);border:2px dashed rgba(201,168,76,0.2);border-radius:8px;padding:40px 20px;text-align:center;color:var(--muted)}
-.blog-placeholder .bp-icon{font-size:2.5rem;margin-bottom:12px;opacity:.4}
-.blog-placeholder p{font-size:.85rem;line-height:1.6}
-
 #skills{background:var(--dark2)}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .skill-group{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px}
@@ -164,20 +143,6 @@ section{padding:90px 6%}
 .pwd-error.show{display:block}
 .pwd-unlock-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0A0C14;padding:13px;border-radius:4px;font-weight:700;font-size:.92rem;border:none;cursor:pointer;margin-bottom:10px}
 .pwd-cancel-btn{width:100%;background:none;border:1px solid var(--border);color:var(--muted);padding:11px;border-radius:4px;font-size:.85rem;cursor:pointer}
-
-/* BLOG MODAL */
-.blog-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1500;align-items:center;justify-content:center;padding:20px}
-.blog-modal-overlay.active{display:flex}
-.blog-modal{background:var(--dark2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:560px;max-height:92vh;overflow-y:auto}
-.blog-modal-header{padding:24px 28px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.blog-modal-header h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff}
-.blog-modal-body{padding:24px 28px}
-.bform-group{margin-bottom:16px}
-.bform-group label{display:block;font-size:.74rem;color:var(--gold);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
-.bform-group input,.bform-group select,.bform-group textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:11px 14px;color:var(--text);font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:.3s;resize:vertical}
-.bform-group input:focus,.bform-group select:focus,.bform-group textarea:focus{border-color:var(--gold)}
-.bform-group select option{background:var(--dark2)}
-
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.active{display:flex}
 .modal{background:var(--dark2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:540px;max-height:92vh;overflow-y:auto}
@@ -214,7 +179,6 @@ section{padding:90px 6%}
 .alert-box{display:none;padding:10px 14px;border-radius:6px;font-size:.82rem;margin-bottom:14px;line-height:1.5}
 .alert-box.error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:#f87171;display:block}
 .alert-box.success{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#4ade80;display:block}
-.alert-box.info{background:rgba(201,168,76,0.1);border:1px solid var(--border);color:var(--gold);display:block}
 .confirm-step{text-align:center;padding:16px 0}
 .confirm-icon{font-size:3.5rem;margin-bottom:16px}
 .confirm-step h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);margin-bottom:10px}
@@ -235,170 +199,122 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:40px 6%
 .fade-up.visible{opacity:1;transform:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes scrollLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@media(max-width:768px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero-visual{order:-1}.profile-placeholder{width:100%;height:260px}.floating-cert,.hero-badge{display:none}nav .nav-links{display:none}.awards-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero-visual{order:-1}.profile-placeholder{width:100%;height:260px}.floating-cert,.hero-badge{display:none}nav .nav-links{display:none}.awards-grid{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════════
+   CHATBOT STYLES
+═══════════════════════════════════════════ */
+#chatBubble{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(201,168,76,0.4);transition:transform .2s,box-shadow .2s;border:none}
+#chatBubble:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(201,168,76,0.55)}
+#chatBubble svg{width:26px;height:26px;fill:#0A0C14;transition:opacity .2s}
+#chatBubble .cb-close{display:none;font-size:1.3rem;color:#0A0C14;font-weight:700;line-height:1}
+#chatBubble.cb-open svg{display:none}
+#chatBubble.cb-open .cb-close{display:block}
+#cbUnread{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:#ef4444;color:#fff;font-size:.62rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--dark);animation:cbPop .3s ease;display:none}
+@keyframes cbPop{from{transform:scale(0)}to{transform:scale(1)}}
+#chatWindow{position:fixed;bottom:96px;right:28px;width:360px;max-height:560px;background:var(--dark2);border:1px solid var(--border);border-radius:14px;display:flex;flex-direction:column;box-shadow:0 16px 48px rgba(0,0,0,0.6);z-index:9998;transform:scale(0.92) translateY(16px);opacity:0;pointer-events:none;transform-origin:bottom right;transition:transform .25s cubic-bezier(.34,1.4,.64,1),opacity .2s}
+#chatWindow.cb-open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.cb-header{padding:14px 16px;background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border-bottom:1px solid var(--border);border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px}
+.cb-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cb-header-info h4{font-family:'Cormorant Garamond',serif;color:#fff;font-size:1rem;font-weight:600}
+.cb-header-info p{font-size:.7rem;color:var(--muted);margin-top:1px}
+.cb-status{display:inline-block;width:6px;height:6px;border-radius:50%;background:#22c55e;margin-right:4px;animation:cbBlink 2s infinite}
+@keyframes cbBlink{0%,100%{opacity:1}50%{opacity:.4}}
+.cb-actions{margin-left:auto;display:flex;gap:6px}
+.cb-hbtn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.95rem;padding:4px;border-radius:4px;transition:.2s}
+.cb-hbtn:hover{color:var(--gold);background:rgba(201,168,76,0.1)}
+#cbMessages{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+#cbMessages::-webkit-scrollbar{width:4px}
+#cbMessages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.cb-msg{display:flex;flex-direction:column;max-width:82%;animation:cbMsgIn .22s ease}
+@keyframes cbMsgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.cb-msg.bot{align-self:flex-start}
+.cb-msg.user{align-self:flex-end}
+.cb-bubble{padding:10px 13px;border-radius:12px;font-size:.82rem;line-height:1.55;word-break:break-word;white-space:pre-wrap}
+.cb-msg.bot .cb-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:3px}
+.cb-msg.user .cb-bubble{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0A0C14;font-weight:500;border-bottom-right-radius:3px}
+.cb-time{font-size:.63rem;color:var(--muted);margin-top:3px;padding:0 2px}
+.cb-msg.user .cb-time{text-align:right}
+.cb-typing{display:flex;align-items:center;gap:4px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:12px;border-bottom-left-radius:3px;width:fit-content}
+.cb-typing span{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:cbTyping 1.2s infinite}
+.cb-typing span:nth-child(2){animation-delay:.2s}
+.cb-typing span:nth-child(3){animation-delay:.4s}
+@keyframes cbTyping{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.cb-qr{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.cb-qr-btn{background:rgba(201,168,76,0.08);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:.73rem;color:var(--gold);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.cb-qr-btn:hover{background:rgba(201,168,76,0.18);border-color:var(--gold)}
+.cb-input-wrap{padding:10px 12px;border-top:1px solid var(--border);display:flex;align-items:flex-end;gap:8px;background:var(--dark3);border-radius:0 0 14px 14px}
+#cbInput{flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-size:.82rem;font-family:'Inter',sans-serif;outline:none;resize:none;max-height:90px;line-height:1.45;transition:.2s}
+#cbInput:focus{border-color:rgba(201,168,76,0.45)}
+#cbInput::placeholder{color:var(--muted)}
+#cbSendBtn{width:36px;height:36px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+#cbSendBtn:hover{opacity:.85;transform:scale(1.05)}
+#cbSendBtn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+#cbSendBtn svg{width:16px;height:16px;fill:#0A0C14}
+#cbConfigPanel{position:fixed;bottom:96px;right:28px;width:360px;background:var(--dark2);border:1px solid var(--border);border-radius:14px;padding:20px;z-index:9997;box-shadow:0 16px 48px rgba(0,0,0,0.6);display:none}
+#cbConfigPanel h4{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;margin-bottom:4px}
+#cbConfigPanel p{font-size:.75rem;color:var(--muted);margin-bottom:14px;line-height:1.5}
+.cfg-label{font-size:.7rem;color:var(--gold);letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px;display:block}
+.cfg-input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:9px 12px;color:var(--text);font-size:.8rem;font-family:'Inter',sans-serif;outline:none;margin-bottom:12px;transition:.2s}
+.cfg-input:focus{border-color:rgba(201,168,76,0.5)}
+.cfg-row{display:flex;gap:8px}
+.cfg-btn{flex:1;padding:10px;border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;transition:.2s}
+.cfg-save{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0A0C14}
+.cfg-cancel{background:var(--card);border:1px solid var(--border);color:var(--muted)}
+.cfg-status{font-size:.72rem;margin-top:8px;text-align:center;min-height:16px}
+.cfg-status.ok{color:#22c55e}
+.cfg-status.err{color:#f87171}
+@media(max-width:480px){#chatWindow,#cbConfigPanel{width:calc(100vw - 32px);right:16px}#chatBubble{bottom:20px;right:16px}}
 </style>
 </head>
 <body>
+
 <script>
-const CONFIG={SUPABASE_URL:'https://pcbvqxgtqqsnkbmifcyb.supabase.co',SUPABASE_ANON_KEY:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjYnZxeGd0cXFzbmtibWlmY3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjczMzAsImV4cCI6MjA5NTQ0MzMzMH0.GoC7XZ_KI2pRzHFGD62014gq-gK6D6sx66xaaGknBjU',EMAILJS_SERVICE_ID:'service_z6157mx',EMAILJS_TEMPLATE_ID:'template_noevlqp',EMAILJS_PUBLIC_KEY:'O0cYefEhpH8r-t8kD',OWNER_EMAIL_1:'info@srideviedupuganti.com',OWNER_EMAIL_2:'esridevi999@gmail.com'};
+const CONFIG={
+  SUPABASE_URL:'https://pcbvqxgtqqsnkbmifcyb.supabase.co',
+  SUPABASE_ANON_KEY:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjYnZxeGd0cXFzbmtibWlmY3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjczMzAsImV4cCI6MjA5NTQ0MzMzMH0.GoC7XZ_KI2pRzHFGD62014gq-gK6D6sx66xaaGknBjU',
+  EMAILJS_SERVICE_ID:'service_z6157mx',
+  EMAILJS_TEMPLATE_ID:'template_noevlqp',
+  EMAILJS_PUBLIC_KEY:'O0cYefEhpH8r-t8kD',
+  OWNER_EMAIL_1:'info@srideviedupuganti.com',
+  OWNER_EMAIL_2:'esridevi999@gmail.com',
+};
 const STORAGE=`${CONFIG.SUPABASE_URL}/storage/v1`;
 const HEADERS={'apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`};
 const emailReady=()=>!CONFIG.EMAILJS_PUBLIC_KEY.includes('YOUR_');
 if(emailReady())emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
 
-// ── OWNER AUTH ──────────────────────────────────────────────
 let pendingTarget=null;
 async function hashPassword(pwd){const enc=new TextEncoder();const buf=await crypto.subtle.digest('SHA-256',enc.encode(pwd));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}
 window.__ownerHash='0103f63df9cd6a5feac5caa0fad63b659c21c672e51f748d8b40e060ae1de8de';
 
-function openPwdModal(target){
-  pendingTarget=target;
-  document.getElementById('pwdModal').classList.add('active');
-  document.getElementById('pwdInput').value='';
-  document.getElementById('pwdInput').type='password';
-  document.getElementById('eyeBtn').textContent='👁️';
-  document.getElementById('pwdError').classList.remove('show');
-  setTimeout(()=>document.getElementById('pwdInput').focus(),120);
-}
+function openPwdModal(target){pendingTarget=target;const m=document.getElementById('pwdModal');m.classList.add('active');document.getElementById('pwdInput').value='';document.getElementById('pwdInput').type='password';document.getElementById('eyeBtn').textContent='👁️';document.getElementById('pwdError').classList.remove('show');setTimeout(()=>document.getElementById('pwdInput').focus(),120);}
 function closePwdModal(){document.getElementById('pwdModal').classList.remove('active');pendingTarget=null;}
-async function submitPwd(){
-  const pwd=document.getElementById('pwdInput').value;if(!pwd)return;
-  const hashed=await hashPassword(pwd);
-  if(hashed===window.__ownerHash){
-    const t=pendingTarget;closePwdModal();
-    setTimeout(()=>{
-      if(t==='profile')document.getElementById('profileInput').click();
-      else if(t==='gallery')document.getElementById('galleryInput').click();
-      else if(t==='blog')openBlogModal();
-    },100);
-  }else{document.getElementById('pwdError').classList.add('show');document.getElementById('pwdInput').value='';document.getElementById('pwdInput').focus();}
-}
+async function submitPwd(){const pwd=document.getElementById('pwdInput').value;if(!pwd)return;const hashed=await hashPassword(pwd);if(hashed===window.__ownerHash){const t=pendingTarget;closePwdModal();if(t==='delete'){await executeDelete();}else{const inputId=t==='profile'?'profileInput':'galleryInput';const trigger=document.createElement('label');trigger.setAttribute('for',inputId);trigger.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;background:transparent;width:1px;height:1px;overflow:hidden;';document.body.appendChild(trigger);trigger.click();setTimeout(()=>trigger.remove(),500);}}else{document.getElementById('pwdError').classList.add('show');document.getElementById('pwdInput').value='';document.getElementById('pwdInput').focus();}}
 function toggleEye(){const i=document.getElementById('pwdInput');const b=document.getElementById('eyeBtn');i.type=i.type==='password'?'text':'password';b.textContent=i.type==='password'?'👁️':'🙈';}
 
-// ── SUPABASE STORAGE ─────────────────────────────────────────
+async function uploadToSupabase(bucket,path,file){const url=`${STORAGE}/object/${bucket}/${path}`;const dataUrl=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error("FileReader failed"));reader.readAsDataURL(file);});const base64=dataUrl.split(",")[1];const binary=atob(base64);const bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);const blob=new Blob([bytes],{type:file.type||"image/jpeg"});const headers={"apikey":CONFIG.SUPABASE_ANON_KEY,"Authorization":`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,"Content-Type":blob.type,"x-upsert":"true"};let res=await fetch(url,{method:"POST",headers,body:blob});if(!res.ok&&(res.status===409||res.status===400)){res=await fetch(url,{method:"PUT",headers,body:blob});}if(!res.ok){const errText=await res.text();throw new Error(`Upload failed ${res.status}: ${errText}`);}return`${CONFIG.SUPABASE_URL}/storage/v1/object/public/${bucket}/${path}`;}
+async function listSupabaseFiles(bucket){const res=await fetch(`${STORAGE}/object/list/${bucket}`,{method:'POST',headers:{...HEADERS,'Content-Type':'application/json'},body:JSON.stringify({prefix:'',limit:100,offset:0,sortBy:{column:'created_at',order:'asc'}})});if(!res.ok)return[];const files=await res.json();return(Array.isArray(files)?files:[]).map(f=>({src:`${STORAGE}/object/public/${bucket}/${f.name}`,name:f.name}));}
 const PUBLIC_URL=`${CONFIG.SUPABASE_URL}/storage/v1/object/public`;
-async function uploadToSupabase(bucket,path,file){
-  const dataUrl=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(new Error('FileReader failed'));r.readAsDataURL(file);});
-  const base64=dataUrl.split(',')[1];const binary=atob(base64);const bytes=new Uint8Array(binary.length);
-  for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
-  const blob=new Blob([bytes],{type:file.type||'image/jpeg'});
-  const headers={'apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,'Content-Type':blob.type,'x-upsert':'true'};
-  const url=`${STORAGE}/object/${bucket}/${path}`;
-  let res=await fetch(url,{method:'POST',headers,body:blob});
-  if(!res.ok&&(res.status===409||res.status===400))res=await fetch(url,{method:'PUT',headers,body:blob});
-  if(!res.ok)throw new Error(`Upload failed ${res.status}`);
-  return `${PUBLIC_URL}/${bucket}/${path}`;
-}
-async function listSupabaseFiles(bucket){
-  const res=await fetch(`${STORAGE}/object/list/${bucket}`,{method:'POST',headers:{...HEADERS,'Content-Type':'application/json'},body:JSON.stringify({prefix:'',limit:100,offset:0,sortBy:{column:'created_at',order:'asc'}})});
-  if(!res.ok)return[];
-  const files=await res.json();
-  return(Array.isArray(files)?files:[]).map(f=>({src:`${PUBLIC_URL}/${bucket}/${f.name}`,name:f.name}));
-}
-
-// ── PROFILE ──────────────────────────────────────────────────
-async function uploadProfilePic(e){
-  const f=e.target.files[0];e.target.value='';if(!f)return;
-  document.getElementById('profilePlaceholder').querySelector('.pp-text').textContent='⏳ Uploading…';
-  try{const url=await uploadToSupabase('profile','profile-photo',f);showProfileImg(url+'?t='+Date.now());}
-  catch(err){document.getElementById('profilePlaceholder').querySelector('.pp-text').textContent='Upload failed. Try again.';}
-}
+async function loadProfileFromSupabase(){const url=`${PUBLIC_URL}/profile/profile-photo?t=${Date.now()}`;const img=new Image();img.onload=()=>showProfileImg(url);img.onerror=()=>console.log('No profile photo yet');img.src=url;}
+async function uploadProfilePic(e){const f=e.target.files[0];e.target.value='';if(!f)return;const ph=document.getElementById('profilePlaceholder');const ppText=ph.querySelector('.pp-text');ppText.textContent='⏳ Uploading…';try{const url=await uploadToSupabase('profile','profile-photo',f);showProfileImg(url+'?t='+Date.now());}catch(err){ppText.textContent='Upload failed. Please try again.';alert('Upload failed: '+err.message);}}
 function showProfileImg(url){document.getElementById('profileImg').src=url;document.getElementById('profilePlaceholder').style.display='none';document.getElementById('profileImgWrap').style.display='block';}
-async function loadProfileFromSupabase(){
-  const url=`${PUBLIC_URL}/profile/profile-photo?t=${Date.now()}`;
-  const img=new Image();img.onload=()=>showProfileImg(url);img.onerror=()=>console.log('No profile photo yet');img.src=url;
-}
 
-// ── GALLERY ──────────────────────────────────────────────────
-let galleryPhotos=[];
+let deleteTarget=null;
 let pendingReplaceTarget=null;
-const ctxMenu=(()=>{const el=document.createElement('div');el.className='photo-context-menu';el.id='photoCtxMenu';el.innerHTML='<button id="ctxReplaceBtn">🔄 Replace Photo</button>';document.body.appendChild(el);document.addEventListener('click',()=>el.classList.remove('show'));return el;})();
+const ctxMenu=(()=>{const el=document.createElement('div');el.className='photo-context-menu';el.id='photoCtxMenu';el.innerHTML=`<button id="ctxDeleteBtn">🔄 Replace Photo</button>`;document.body.appendChild(el);document.addEventListener('click',()=>el.classList.remove('show'));document.addEventListener('contextmenu',()=>el.classList.remove('show'));return el;})();
+function showPhotoContextMenu(e,type,idx,name){e.preventDefault();e.stopPropagation();const menu=document.getElementById('photoCtxMenu');const x=Math.min(e.clientX,window.innerWidth-180);const y=Math.min(e.clientY,window.innerHeight-60);menu.style.left=x+'px';menu.style.top=y+'px';menu.classList.add('show');document.getElementById('ctxDeleteBtn').onclick=(ev)=>{ev.stopPropagation();menu.classList.remove('show');pendingReplaceTarget={idx,name};pendingTarget='gallery';document.getElementById('pwdInput').value='';document.getElementById('pwdError').classList.remove('show');document.getElementById('pwdModal').classList.add('active');document.getElementById('pwdInput').focus();};}
+function openDeleteModal(type,idx,name){deleteTarget={type,idx,name};pendingTarget='delete';document.getElementById('pwdInput').value='';document.getElementById('pwdError').classList.remove('show');document.getElementById('pwdModal').classList.add('active');document.getElementById('pwdInput').focus();}
+async function deleteFromSupabase(bucket,path){const url=`${STORAGE}/object/${bucket}/${path}`;const res=await fetch(url,{method:'DELETE',headers:{'apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`}});if(!res.ok){const errText=await res.text();throw new Error(`Delete failed ${res.status}: ${errText}`);}}
+async function executeDelete(){if(!deleteTarget)return;const{type,idx,name}=deleteTarget;try{if(type==='gallery'){await deleteFromSupabase('gallery',name);galleryPhotos.splice(idx,1);renderGallery();}else if(type==='profile'){await deleteFromSupabase('profile','profile-photo');document.getElementById('profileImg').src='';document.getElementById('profileImgWrap').style.display='none';document.getElementById('profilePlaceholder').style.display='flex';document.getElementById('profilePlaceholder').querySelector('.pp-text').textContent='Click to upload your profile photo';}deleteTarget=null;}catch(err){alert('Delete failed: '+err.message);}}
 
-function showPhotoContextMenu(e,idx,name){e.preventDefault();e.stopPropagation();const menu=document.getElementById('photoCtxMenu');const x=Math.min(e.clientX,window.innerWidth-180);const y=Math.min(e.clientY,window.innerHeight-60);menu.style.left=x+'px';menu.style.top=y+'px';menu.classList.add('show');document.getElementById('ctxReplaceBtn').onclick=(ev)=>{ev.stopPropagation();menu.classList.remove('show');pendingReplaceTarget={idx,name};openPwdModal('gallery');};}
+let galleryPhotos=[];
+async function uploadGallery(e){const files=Array.from(e.target.files);e.target.value='';if(!files.length)return;const btn=document.querySelector('.edit-gallery-btn');btn.textContent='⏳ Uploading…';if(pendingReplaceTarget){const{idx,name}=pendingReplaceTarget;pendingReplaceTarget=null;const f=files[0];try{await uploadToSupabase('gallery',name,f);await loadGalleryFromSupabase();}catch(err){console.error('Gallery replace error:',err);}}else{for(const f of files){const safeName=Date.now()+'_'+f.name.replace(/\s+/g,'_');try{const url=await uploadToSupabase('gallery',safeName,f);galleryPhotos.push({src:url,name:safeName});}catch(err){console.error('Gallery upload error:',err);}}}btn.innerHTML='✏️ Edit Gallery <span style="font-size:.7rem;color:var(--muted)">(Single or Multiple)</span>';renderGallery();}
+function renderGallery(){const track=document.getElementById('galleryTrack');track.innerHTML='';if(!galleryPhotos.length){Array(6).fill(null).forEach(()=>{const s=document.createElement('div');s.className='gallery-slot placeholder-slot';s.innerHTML='<div class="ph-icon">🖼️</div><span>Add Photo</span>';track.appendChild(s);});return;}galleryPhotos.forEach((p,idx)=>{const s=document.createElement('div');s.className='gallery-slot';const img=document.createElement('img');img.src=p.src;img.alt=p.name;const lbl=document.createElement('div');lbl.className='slot-label';lbl.textContent=p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');s.appendChild(img);s.appendChild(lbl);track.appendChild(s);s.addEventListener('contextmenu',(e)=>{e.preventDefault();showPhotoContextMenu(e,'gallery',idx,p.name);});});galleryPhotos.forEach(p=>{const s=document.createElement('div');s.className='gallery-slot';const img=document.createElement('img');img.src=p.src;img.alt=p.name;const lbl=document.createElement('div');lbl.className='slot-label';lbl.textContent=p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');s.appendChild(img);s.appendChild(lbl);track.appendChild(s);});}
+async function loadGalleryFromSupabase(){try{galleryPhotos=await listSupabaseFiles('gallery');if(galleryPhotos.length)renderGallery();}catch(e){console.log('No gallery photos yet');}}
 
-async function uploadGallery(e){
-  const files=Array.from(e.target.files);e.target.value='';if(!files.length)return;
-  const btn=document.querySelector('.edit-gallery-btn');btn.textContent='⏳ Uploading…';
-  if(pendingReplaceTarget){const{name}=pendingReplaceTarget;pendingReplaceTarget=null;try{await uploadToSupabase('gallery',name,files[0]);await loadGalleryFromSupabase();}catch(err){console.error(err);}}
-  else{for(const f of files){const safeName=Date.now()+'_'+f.name.replace(/\s+/g,'_');try{const url=await uploadToSupabase('gallery',safeName,f);galleryPhotos.push({src:url,name:safeName});}catch(err){console.error(err);}}}
-  btn.innerHTML='✏️ Edit Gallery <span style="font-size:.7rem;color:var(--muted)">(Single or Multiple)</span>';
-  renderGallery();
-}
-function renderGallery(){
-  const track=document.getElementById('galleryTrack');track.innerHTML='';
-  if(!galleryPhotos.length){Array(6).fill(null).forEach(()=>{const s=document.createElement('div');s.className='gallery-slot placeholder-slot';s.innerHTML='<div class="ph-icon">🖼️</div><span>Add Photo</span>';track.appendChild(s);});return;}
-  galleryPhotos.forEach((p,idx)=>{const s=document.createElement('div');s.className='gallery-slot';const img=document.createElement('img');img.src=p.src;img.alt=p.name;const lbl=document.createElement('div');lbl.className='slot-label';lbl.textContent=p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');s.appendChild(img);s.appendChild(lbl);track.appendChild(s);s.addEventListener('contextmenu',e=>showPhotoContextMenu(e,idx,p.name));});
-  galleryPhotos.forEach(p=>{const s=document.createElement('div');s.className='gallery-slot';const img=document.createElement('img');img.src=p.src;img.alt=p.name;const lbl=document.createElement('div');lbl.className='slot-label';lbl.textContent=p.name.replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/^\d+\s*/,'');s.appendChild(img);s.appendChild(lbl);track.appendChild(s);});
-}
-async function loadGalleryFromSupabase(){try{galleryPhotos=await listSupabaseFiles('gallery');if(galleryPhotos.length)renderGallery();}catch(e){console.log('Gallery load error:',e);}}
-
-// ── BLOG ─────────────────────────────────────────────────────
-let blogPosts=[];
-
-function openBlogModal(){
-  document.getElementById('blogModal').classList.add('active');
-  document.getElementById('blogTitle').value='';
-  document.getElementById('blogCategory').value='AI & Automation';
-  document.getElementById('blogExcerpt').value='';
-  document.getElementById('blogUrl').value='';
-  document.getElementById('blogDate').value=new Date().toISOString().split('T')[0];
-}
-function closeBlogModal(){document.getElementById('blogModal').classList.remove('active');}
-
-async function saveBlogPost(){
-  const title=document.getElementById('blogTitle').value.trim();
-  const category=document.getElementById('blogCategory').value;
-  const excerpt=document.getElementById('blogExcerpt').value.trim();
-  const url=document.getElementById('blogUrl').value.trim();
-  const date=document.getElementById('blogDate').value;
-  if(!title||!excerpt){alert('Please fill in Title and Excerpt.');return;}
-  const post={id:Date.now(),title,category,excerpt,url,date,emoji:categoryEmoji(category)};
-  // Save to Supabase blogs table
-  try{
-    await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/blogs`,{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({title,category,excerpt,url,date,emoji:post.emoji})});
-  }catch(e){console.warn('Blog save error:',e);}
-  blogPosts.push(post);
-  renderBlog();
-  closeBlogModal();
-}
-
-function categoryEmoji(cat){const map={'AI & Automation':'🤖','Career & Mentoring':'🎯','Cloud & Tech':'☁️','Wellbeing':'🌿','Leadership':'👩‍💼','General':'✍️'};return map[cat]||'✍️';}
-
-function renderBlog(){
-  const grid=document.getElementById('blogGrid');grid.innerHTML='';
-  if(!blogPosts.length){
-    grid.innerHTML=`<div class="blog-placeholder" style="grid-column:1/-1"><div class="bp-icon">✍️</div><p>Blog posts coming soon!<br>Click <strong style="color:var(--gold)">+ Add Blog Post</strong> to publish your first article.</p></div>`;
-    return;
-  }
-  blogPosts.forEach(p=>{
-    const card=document.createElement('div');card.className='blog-card fade-up';
-    card.innerHTML=`
-      <div class="blog-card-img">${p.emoji}</div>
-      <div class="blog-card-body">
-        <div class="blog-tag">${p.category}</div>
-        <h3>${p.title}</h3>
-        <p>${p.excerpt}</p>
-        <div class="blog-meta">
-          <span class="blog-date">📅 ${new Date(p.date).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})}</span>
-          ${p.url?`<a href="${p.url}" target="_blank" class="blog-read">Read More →</a>`:'<span class="blog-read">Coming Soon</span>'}
-        </div>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-async function loadBlogFromSupabase(){
-  try{
-    const res=await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/blogs?order=date.desc`,{headers:{...HEADERS,'Content-Type':'application/json'}});
-    if(!res.ok)return;
-    const posts=await res.json();
-    if(Array.isArray(posts)&&posts.length){blogPosts=posts;renderBlog();}
-  }catch(e){console.log('Blog load error:',e);}
-}
-
-// ── BOOKING ───────────────────────────────────────────────────
 const pricing={'AI Consulting & Strategy':{30:5000,60:10000},'AI Workflow Automations (n8n)':{30:999,60:1998},'AI Agents & RAG Pipelines':{30:5000,60:10000},'Chatbots & Voice Assistants':{30:999,60:1998},'Career Guidance & AI Mentoring':{30:750,60:1500},'Holistic Wellbeing Coaching':{30:1000,60:2000},'Personalized AI Roadmap':{30:1999,60:3998}};
-function updatePrice(){const sel=document.getElementById('serviceSelect');const opt=sel.options[sel.selectedIndex];const dur=document.getElementById('durationSelect').value;const pd=document.getElementById('priceDisplay');if(opt.value&&dur&&pricing[opt.value]){const amt=pricing[opt.value][parseInt(dur)];document.getElementById('priceAmount').textContent='₹'+amt.toLocaleString('en-IN');document.getElementById('priceMeta').textContent=opt.value+' · '+dur+' mins';pd.style.display='block';}else pd.style.display='none';}
+function updatePrice(){const sel=document.getElementById('serviceSelect');const opt=sel.options[sel.selectedIndex];const dur=document.getElementById('durationSelect').value;const pd=document.getElementById('priceDisplay');if(opt.value&&dur&&pricing[opt.value]){const amt=pricing[opt.value][parseInt(dur)];document.getElementById('priceAmount').textContent='₹'+amt.toLocaleString('en-IN');document.getElementById('priceMeta').textContent=opt.value+' · '+dur+' mins';pd.style.display='block';}else{pd.style.display='none';}}
 function getCurrentPrice(){const sel=document.getElementById('serviceSelect');const dur=parseInt(document.getElementById('durationSelect').value)||0;return pricing[sel.value]?.[dur]||0;}
 function openBooking(){document.getElementById('bookingModal').classList.add('active');goToStep(1);}
 function closeModal(){document.getElementById('bookingModal').classList.remove('active');}
@@ -406,23 +322,26 @@ function openBookingWithService(svc){openBooking();setTimeout(()=>{document.getE
 function goToStep(n){[1,2,3].forEach(i=>{document.getElementById('step'+i).classList.toggle('hidden',i!==n);document.getElementById('dot'+i).classList.toggle('active',i<=n);});}
 function showAlert(id,msg,type){const el=document.getElementById(id);el.textContent=msg;el.className='alert-box '+type;}
 function clearAlert(id){document.getElementById(id).className='alert-box';}
-function proceedToPayment(){clearAlert('formAlert');const name=document.getElementById('clientName').value.trim();const phone=document.getElementById('clientPhone').value.trim();const email=document.getElementById('clientEmail').value.trim();const svc=document.getElementById('serviceSelect').value;const dur=document.getElementById('durationSelect').value;const prof=document.getElementById('clientProfession').value.trim();if(!name||!phone||!email||!svc||!dur){showAlert('formAlert','⚠️ Please fill in all required fields.','error');return;}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showAlert('formAlert','⚠️ Please enter a valid email address.','error');return;}const amt=getCurrentPrice();document.getElementById('summaryBox').innerHTML=`<span style="color:var(--gold)">👤 Name:</span> ${name}<br><span style="color:var(--gold)">📱 Phone:</span> ${phone}<br><span style="color:var(--gold)">📧 Email:</span> ${email}<br>${prof?`<span style="color:var(--gold)">💼 Profession:</span> ${prof}<br>`:''}<span style="color:var(--gold)">🎯 Service:</span> ${svc}<br><span style="color:var(--gold)">⏱ Duration:</span> ${dur} mins<br><span style="color:var(--gold)">💰 Amount:</span> ₹${amt.toLocaleString('en-IN')}`;document.getElementById('payAmountBig').textContent='₹'+amt.toLocaleString('en-IN');goToStep(2);}
-function onTxnInput(){const txn=document.getElementById('transactionId').value.trim();const banner=document.getElementById('payConfirmBanner');if(txn.length>=6){document.getElementById('bannerAmount').textContent='₹'+getCurrentPrice().toLocaleString('en-IN');banner.classList.add('show');}else banner.classList.remove('show');}
+function proceedToPayment(){clearAlert('formAlert');const name=document.getElementById('clientName').value.trim();const phone=document.getElementById('clientPhone').value.trim();const email=document.getElementById('clientEmail').value.trim();const svc=document.getElementById('serviceSelect').value;const dur=document.getElementById('durationSelect').value;const prof=document.getElementById('clientProfession').value.trim();if(!name||!phone||!email||!svc||!dur){showAlert('formAlert','⚠️ Please fill in all required fields.','error');return;}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showAlert('formAlert','⚠️ Please enter a valid email address.','error');return;}const amt=getCurrentPrice();document.getElementById('summaryBox').innerHTML=`<span style="color:var(--gold)">👤 Name:</span> ${name}<br><span style="color:var(--gold)">📱 Phone:</span> ${phone}<br><span style="color:var(--gold)">📧 Email:</span> ${email}<br>`+(prof?`<span style="color:var(--gold)">💼 Profession:</span> ${prof}<br>`:'')+`<span style="color:var(--gold)">🎯 Service:</span> ${svc}<br><span style="color:var(--gold)">⏱ Duration:</span> ${dur} mins<br><span style="color:var(--gold)">💰 Amount:</span> ₹${amt.toLocaleString('en-IN')}`;document.getElementById('payAmountBig').textContent='₹'+amt.toLocaleString('en-IN');goToStep(2);}
+function onTxnInput(){const txn=document.getElementById('transactionId').value.trim();const banner=document.getElementById('payConfirmBanner');if(txn.length>=6){document.getElementById('bannerAmount').textContent='₹'+getCurrentPrice().toLocaleString('en-IN');banner.classList.add('show');}else{banner.classList.remove('show');}}
 async function confirmBooking(){clearAlert('payAlert');const txn=document.getElementById('transactionId').value.trim();if(!txn){showAlert('payAlert','⚠️ Please enter your UPI Transaction ID.','error');return;}const name=document.getElementById('clientName').value.trim();const phone=document.getElementById('clientPhone').value.trim();const email=document.getElementById('clientEmail').value.trim();const svc=document.getElementById('serviceSelect').value;const dur=document.getElementById('durationSelect').value;const prof=document.getElementById('clientProfession').value.trim();const amt=getCurrentPrice();const ref='ZW-'+Date.now().toString().slice(-8);const btn=document.getElementById('confirmBtn');btn.disabled=true;btn.textContent='Processing…';try{await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/Bookings`,{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.SUPABASE_ANON_KEY,'Authorization':`Bearer ${CONFIG.SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({'ref':ref,'Name':name,'Phone#':phone,'email':email,'Profession':prof,'Service':svc,'Duration_mins':Number(dur),'Amount':amt,'transaction_id':txn,'booked_at':new Date().toISOString(),'status':'confirmed','Payment_Done':true,'Message':`Booking via portfolio. Service: ${svc}`})});}catch(e){console.warn('Supabase error:',e);}if(emailReady()){try{await emailjs.send(CONFIG.EMAILJS_SERVICE_ID,CONFIG.EMAILJS_TEMPLATE_ID,{to_name:name,to_email:email,cc_email:CONFIG.OWNER_EMAIL_2,service:svc,duration:dur+' mins',amount:'₹'+amt.toLocaleString('en-IN'),txn_id:txn,booking_ref:ref,reply_to:CONFIG.OWNER_EMAIL_1});}catch(e){console.warn('EmailJS error:',e);}}document.getElementById('confirmMsg').textContent=`Thank you, ${name}! Your session is confirmed.`;document.getElementById('confirmDetails').innerHTML=`<span style="color:var(--gold)">📋 Ref:</span> ${ref}<br><span style="color:var(--gold)">👤 Name:</span> ${name}<br><span style="color:var(--gold)">📧 Email:</span> ${email}<br><span style="color:var(--gold)">🎯 Service:</span> ${svc}<br><span style="color:var(--gold)">⏱ Duration:</span> ${dur} mins<br><span style="color:var(--gold)">💰 Paid:</span> ₹${amt.toLocaleString('en-IN')}<br><span style="color:var(--gold)">🧾 Txn ID:</span> ${txn}`;btn.disabled=false;btn.textContent='✅ Confirm Booking';goToStep(3);}
 function uploadQR(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=document.getElementById('phonePeQR');img.src=ev.target.result;img.style.display='block';document.getElementById('qrPlaceholder').style.display='none';};r.readAsDataURL(f);}
 
-// ── INIT ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',()=>{
   loadProfileFromSupabase();
   loadGalleryFromSupabase();
-  loadBlogFromSupabase();
   if(emailReady())emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
   document.getElementById('bookingModal').addEventListener('click',e=>{if(e.target===document.getElementById('bookingModal'))closeModal();});
   document.getElementById('pwdModal').addEventListener('click',e=>{if(e.target===document.getElementById('pwdModal'))closePwdModal();});
-  document.getElementById('blogModal').addEventListener('click',e=>{if(e.target===document.getElementById('blogModal'))closeBlogModal();});
   const obs=new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
   document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
   window.addEventListener('scroll',()=>{document.querySelector('nav').style.background=window.scrollY>50?'rgba(10,12,20,0.97)':'rgba(10,12,20,0.92)';});
+  const profileImg=document.getElementById('profileImg');
+  if(profileImg){profileImg.addEventListener('contextmenu',(e)=>{const wrap=document.getElementById('profileImgWrap');if(wrap&&wrap.style.display!=='none'){showPhotoContextMenu(e,'profile',null,'profile-photo');}});}
+
+  // ── Chatbot init ──
+  cbAddBotMessage("👋 Hi! I'm Sridevi's AI assistant.\n\nAsk me anything about her services, experience, pricing, or how to book a session!",CB_QUICK);
+  setTimeout(()=>{document.getElementById('cbUnread').style.display='flex';},800);
 });
 </script>
 
@@ -435,7 +354,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#" onclick="openBooking();return false;" class="nav-book">Book Now</a></li>
   </ul>
@@ -578,7 +496,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       <div class="hscroll-track fast">
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">I feel so happy and grateful to find a mentor who patiently listens and gives valuable insights. Money invested is very less compared to the services provided.</p><div class="testimonial-author">Pragathi Kondru</div><div class="testimonial-role">Mentee · Topmate</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">Ms Sridevi was very observant and gave practical guidance. She gave short-term and long-term action plans. Highly recommended mentor.</p><div class="testimonial-author">Biju Cherian</div><div class="testimonial-role">Mentee · Topmate</div></div>
-        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">My session was absolute clarity forward. One simple solution helped me structure my entire new direction in AI strategy.</p><div class="testimonial-author">Riddhi Desai</div><div class="testimonial-role">Mentee · AI Strategy</div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">My session was absolute clarity forward. One simple solution helped me structure my entire new direction in AI strategy. Truly appreciate your time.</p><div class="testimonial-author">Riddhi Desai</div><div class="testimonial-role">Mentee · AI Strategy</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">Sridevi, I loved talking to you. So insightful and inspiring. I will definitely want to work with you to take my career forward.</p><div class="testimonial-author">Viswapani</div><div class="testimonial-role">Mentee · Topmate</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">I joined with lots of confusion in mind. Sridevi provided clarity on the path I can follow. No preaching, pure practical advice.</p><div class="testimonial-author">IT Professional</div><div class="testimonial-role">Mentee · Career Transition</div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">Very useful session. Clear, concise, and actionable. Exactly what I needed to understand the practical side of AI adoption.</p><div class="testimonial-author">Prathyusha G.</div><div class="testimonial-role">Mentee · Topmate</div></div>
@@ -598,31 +516,14 @@ document.addEventListener('DOMContentLoaded',()=>{
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">RN</div><div><div class="rec-name">Ravindra Nurukurthi</div><div class="rec-title">Delivery Associate Director</div><div class="rec-company">NTT DATA</div></div></div><p class="rec-text">"An empathy driven leader with a unique blend of delivery focus, strong technical prowess, creativity and people management skills that inspire others."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">KT</div><div><div class="rec-name">Kavitha Thonangi</div><div class="rec-title">Executive Manager</div><div class="rec-company">Deloitte</div></div></div><p class="rec-text">"Sridevi is highly committed to her work. She puts in nothing short of her best efforts with amazing infectious enthusiasm that keeps her team motivated and charged."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">RV</div><div><div class="rec-name">Ramakrishna Vedantam</div><div class="rec-title">Senior Consultant</div><div class="rec-company">TCS</div></div></div><p class="rec-text">"Very sharp and detail oriented. Her command over DBMS topics is 10 on 10. Her contribution to Oracle DBA community in Satyam is always talked about with appreciation."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">BB</div><div><div class="rec-name">Bantwal Mahes Baliga</div><div class="rec-title">Sr. Database Manager</div><div class="rec-company">The Hartford</div></div></div><p class="rec-text">"I know Sridevi for 15 years — excellent in communication, very proactive, responsive, with in-depth knowledge in Oracle performance tuning."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">BB</div><div><div class="rec-name">Bantwal Mahes Baliga</div><div class="rec-title">Sr. Database Manager</div><div class="rec-company">The Hartford</div></div></div><p class="rec-text">"I know Sridevi for 15 years — excellent in communication and resource planning, very proactive, responsive, with in-depth knowledge in Oracle performance tuning."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">VP</div><div><div class="rec-name">VidnyaCharan Puvvula</div><div class="rec-title">Head of Bus. Dev., GTM</div><div class="rec-company">Capgemini</div></div></div><p class="rec-text">"One of those rare associates with niche skills in deep subject knowledge, team managing abilities, attention to details and quick learner — a multi-facet professional."</p></div>
         <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">HM</div><div><div class="rec-name">Haroharan Mjlaraiah</div><div class="rec-title">Senior AI</div><div class="rec-company">Saxon AI</div></div></div><p class="rec-text">"She impressed me with her deep expertise in Cloud Data Storage, Infrastructure Management, and optimization. A constant learner, always staying ahead of industry trends."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">SA</div><div><div class="rec-name">Susanna Are</div><div class="rec-title">Sr. Technical Advisor</div><div class="rec-company">Microsoft</div></div></div><p class="rec-text">"Sri's deeply caring guidance, excellent management skills, and remarkable empathetic nature are a great inspiration."</p></div>
-        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">MG</div><div><div class="rec-name">Muthukumar Gopalan</div><div class="rec-title">Associate Director</div><div class="rec-company">Neuralem</div></div></div><p class="rec-text">"Sridevi sets the benchmark for being a hard worker and great Mentor — superior quality of work and unending commitment from inception to closure."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">SA</div><div><div class="rec-name">Susanna Are</div><div class="rec-title">Sr. Technical Advisor</div><div class="rec-company">Microsoft</div></div></div><p class="rec-text">"Sri's deeply caring guidance, excellent management skills, and remarkable empathetic nature are a great inspiration. She demonstrates professionalism in all aspects."</p></div>
+        <div class="rec-card"><div class="li-badge">🔗 LinkedIn</div><div class="rec-header"><div class="rec-avatar">MG</div><div><div class="rec-name">Muthukumar Gopalan</div><div class="rec-title">Associate Director – Customer Success</div><div class="rec-company">Neuralem</div></div></div><p class="rec-text">"Sridevi sets the benchmark for being a hard worker and great Mentor — superior quality of work and unending commitment from inception to closure."</p></div>
       </div>
     </div>
     <p style="text-align:center;margin-top:16px;font-size:.78rem;color:var(--muted)">⭐ 24 verified LinkedIn recommendations · Hover to pause</p>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section id="blog">
-  <div class="section-inner">
-    <div class="blog-header">
-      <div><div class="section-tag">Insights & Articles</div><h2 class="section-title">My <em>Blog</em></h2></div>
-      <button class="add-blog-btn" onclick="openPwdModal('blog')">✍️ Add Blog Post</button>
-    </div>
-    <div class="section-line"></div>
-    <div class="blog-grid" id="blogGrid">
-      <div class="blog-placeholder" style="grid-column:1/-1">
-        <div class="bp-icon">✍️</div>
-        <p>Blog posts coming soon!<br>Click <strong style="color:var(--gold)">✍️ Add Blog Post</strong> to publish your first article.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -735,35 +636,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   </div>
 </div>
 
-<!-- BLOG MODAL -->
-<div id="blogModal" class="blog-modal-overlay">
-  <div class="blog-modal">
-    <div class="blog-modal-header">
-      <h2>✍️ Add Blog Post</h2>
-      <button class="modal-close" onclick="closeBlogModal()">✕</button>
-    </div>
-    <div class="blog-modal-body">
-      <div class="bform-group"><label>Title *</label><input type="text" id="blogTitle" placeholder="e.g. How AI is Transforming Healthcare in 2026"/></div>
-      <div class="bform-group">
-        <label>Category *</label>
-        <select id="blogCategory">
-          <option>AI & Automation</option>
-          <option>Career & Mentoring</option>
-          <option>Cloud & Tech</option>
-          <option>Wellbeing</option>
-          <option>Leadership</option>
-          <option>General</option>
-        </select>
-      </div>
-      <div class="bform-group"><label>Excerpt / Summary *</label><textarea id="blogExcerpt" rows="4" placeholder="A brief summary of your blog post (2-3 sentences)..."></textarea></div>
-      <div class="bform-group"><label>Blog URL (optional)</label><input type="url" id="blogUrl" placeholder="https://medium.com/your-article or leave blank"/></div>
-      <div class="bform-group"><label>Date</label><input type="date" id="blogDate"/></div>
-      <button class="form-btn" onclick="saveBlogPost()">✅ Publish Blog Post</button>
-      <button onclick="closeBlogModal()" style="width:100%;background:none;border:1px solid var(--border);color:var(--muted);padding:11px;border-radius:4px;cursor:pointer;margin-top:10px;font-size:.85rem">Cancel</button>
-    </div>
-  </div>
-</div>
-
 <!-- BOOKING MODAL -->
 <div class="modal-overlay" id="bookingModal">
   <div class="modal">
@@ -772,23 +644,54 @@ document.addEventListener('DOMContentLoaded',()=>{
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-      <div class="step-indicator"><div class="step-dot active" id="dot1"></div><div class="step-dot" id="dot2"></div><div class="step-dot" id="dot3"></div></div>
+      <div class="step-indicator">
+        <div class="step-dot active" id="dot1"></div>
+        <div class="step-dot" id="dot2"></div>
+        <div class="step-dot" id="dot3"></div>
+      </div>
       <div class="booking-step" id="step1">
         <div id="formAlert" class="alert-box"></div>
         <div class="form-group"><label>Full Name *</label><input type="text" id="clientName" placeholder="e.g. Priya Sharma"/></div>
         <div class="form-group"><label>Phone Number *</label><input type="tel" id="clientPhone" placeholder="e.g. +91 98765 43210"/></div>
         <div class="form-group"><label>Email Address *</label><input type="email" id="clientEmail" placeholder="e.g. priya@example.com"/></div>
         <div class="form-group"><label>Your Profession</label><input type="text" id="clientProfession" placeholder="e.g. Software Engineer, CTO, Student..."/></div>
-        <div class="form-group"><label>Select Service *</label><select id="serviceSelect" onchange="updatePrice()"><option value="">-- Choose a Service --</option><option value="AI Consulting & Strategy">AI Consulting & Strategy</option><option value="AI Workflow Automations (n8n)">AI Workflow Automations (n8n)</option><option value="AI Agents & RAG Pipelines">AI Agents & RAG Pipelines</option><option value="Chatbots & Voice Assistants">Chatbots & Voice Assistants</option><option value="Career Guidance & AI Mentoring">Career Guidance & AI Mentoring</option><option value="Holistic Wellbeing Coaching">Holistic Wellbeing Coaching</option><option value="Personalized AI Roadmap">Personalized AI Roadmap</option></select></div>
-        <div class="form-group"><label>Duration *</label><select id="durationSelect" onchange="updatePrice()"><option value="">-- Select Duration --</option><option value="30">30 Minutes</option><option value="60">1 Hour</option></select></div>
-        <div class="price-display" id="priceDisplay"><div class="price-label">Session Fee</div><div class="price-amount" id="priceAmount"></div><div style="font-size:.72rem;color:var(--muted);margin-top:4px" id="priceMeta"></div></div>
+        <div class="form-group">
+          <label>Select Service *</label>
+          <select id="serviceSelect" onchange="updatePrice()">
+            <option value="">-- Choose a Service --</option>
+            <option value="AI Consulting & Strategy">AI Consulting & Strategy</option>
+            <option value="AI Workflow Automations (n8n)">AI Workflow Automations (n8n)</option>
+            <option value="AI Agents & RAG Pipelines">AI Agents & RAG Pipelines</option>
+            <option value="Chatbots & Voice Assistants">Chatbots & Voice Assistants</option>
+            <option value="Career Guidance & AI Mentoring">Career Guidance & AI Mentoring</option>
+            <option value="Holistic Wellbeing Coaching">Holistic Wellbeing Coaching</option>
+            <option value="Personalized AI Roadmap">Personalized AI Roadmap</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Duration *</label>
+          <select id="durationSelect" onchange="updatePrice()">
+            <option value="">-- Select Duration --</option>
+            <option value="30">30 Minutes</option>
+            <option value="60">1 Hour</option>
+          </select>
+        </div>
+        <div class="price-display" id="priceDisplay">
+          <div class="price-label">Session Fee</div>
+          <div class="price-amount" id="priceAmount"></div>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px" id="priceMeta"></div>
+        </div>
         <button class="form-btn" onclick="proceedToPayment()">Proceed to Payment →</button>
       </div>
       <div class="booking-step hidden" id="step2">
         <div id="summaryBox" style="background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:.83rem;margin-bottom:16px;line-height:1.9"></div>
         <div class="qr-section">
           <p style="font-size:.82rem;color:var(--muted);margin-bottom:8px">Scan to pay via <strong style="color:var(--gold)">PhonePe</strong></p>
-          <div id="qrPlaceholder" class="qr-placeholder" onclick="document.getElementById('qrUpload').click()"><div style="font-size:2rem">📱</div><div style="font-size:.76rem;color:var(--muted);text-align:center">Click to upload<br>your PhonePe QR</div><div style="font-size:.72rem;color:var(--gold);background:rgba(201,168,76,0.1);padding:5px 12px;border-radius:3px;border:1px solid var(--border);margin-top:4px">Upload QR Image</div></div>
+          <div id="qrPlaceholder" class="qr-placeholder" onclick="document.getElementById('qrUpload').click()">
+            <div style="font-size:2rem">📱</div>
+            <div style="font-size:.76rem;color:var(--muted);text-align:center">Click to upload<br>your PhonePe QR</div>
+            <div style="font-size:.72rem;color:var(--gold);background:rgba(201,168,76,0.1);padding:5px 12px;border-radius:3px;border:1px solid var(--border);margin-top:4px">Upload QR Image</div>
+          </div>
           <img id="phonePeQR" src="" alt="PhonePe QR" style="display:none;width:220px;height:220px;border-radius:8px;border:2px solid var(--border);margin:0 auto"/>
           <div class="pay-amount-big" id="payAmountBig"></div>
           <div class="payment-note">After payment, enter your UPI Transaction ID below to confirm.</div>
@@ -800,93 +703,262 @@ document.addEventListener('DOMContentLoaded',()=>{
         <button onclick="goToStep(1)" style="width:100%;background:none;border:1px solid var(--border);color:var(--muted);padding:11px;border-radius:4px;cursor:pointer;margin-top:10px;font-size:.83rem">← Back</button>
       </div>
       <div class="booking-step hidden" id="step3">
-        <div class="confirm-step"><div class="confirm-icon">🎉</div><h3>Booking Confirmed!</h3><p id="confirmMsg"></p><div class="confirm-details" id="confirmDetails"></div><p style="color:var(--gold);font-size:.82rem;margin-top:4px">📧 Confirmation email sent to your inbox.</p><p style="font-size:.76rem;color:var(--muted);margin-top:8px">Sridevi will reach out within 24 hours. For urgent queries: <a href="https://wa.me/917416643939" style="color:var(--gold)">WhatsApp</a></p><button class="form-btn" onclick="closeModal()" style="margin-top:20px">Close</button></div>
+        <div class="confirm-step">
+          <div class="confirm-icon">🎉</div>
+          <h3>Booking Confirmed!</h3>
+          <p id="confirmMsg"></p>
+          <div class="confirm-details" id="confirmDetails"></div>
+          <p style="color:var(--gold);font-size:.82rem;margin-top:4px">📧 Confirmation email sent to your inbox.</p>
+          <p style="font-size:.76rem;color:var(--muted);margin-top:8px">Sridevi will reach out within 24 hours. For urgent queries: <a href="https://wa.me/917416643939" style="color:var(--gold)">WhatsApp</a></p>
+          <button class="form-btn" onclick="closeModal()" style="margin-top:20px">Close</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- FILE INPUTS -->
 <input type="file" id="profileInput" accept="image/*" style="display:none" onchange="uploadProfilePic(event)"/>
 <input type="file" id="galleryInput" accept="image/*" multiple style="display:none" onchange="uploadGallery(event)"/>
 <input type="file" id="qrUpload" accept="image/*" style="display:none" onchange="uploadQR(event)"/>
 
-<!-- ========== CHATBOT ========== -->
-<style>
-#chatBtn{position:fixed;bottom:24px;right:24px;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#C9A84C,#E8C97A);border:none;cursor:pointer;z-index:9000;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 20px rgba(201,168,76,0.45);transition:transform .3s}
-#chatBtn:hover{transform:scale(1.1)}
-#chatBtn.pulse{animation:chatPulse 2s infinite}
-@keyframes chatPulse{0%,100%{box-shadow:0 4px 20px rgba(201,168,76,0.45)}50%{box-shadow:0 4px 32px rgba(201,168,76,0.75)}}
-#chatTooltip{position:fixed;bottom:94px;right:24px;background:#1A1E2E;border:1px solid rgba(201,168,76,0.3);border-radius:6px;padding:6px 12px;font-size:.75rem;color:#E8C97A;white-space:nowrap;z-index:9000;opacity:0;transition:opacity .3s;pointer-events:none}
-#chatWindow{position:fixed;bottom:100px;right:24px;width:380px;height:520px;background:#10131E;border:1px solid rgba(201,168,76,0.25);border-radius:16px;display:flex;flex-direction:column;z-index:9001;box-shadow:0 8px 40px rgba(0,0,0,0.6);transform:translateY(20px) scale(0.95);opacity:0;pointer-events:none;transition:all .3s}
-#chatWindow.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all}
-#chatHead{padding:16px 18px;background:#161A28;border-radius:16px 16px 0 0;border-bottom:1px solid rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:space-between}
-#chatHead .ch-left{display:flex;align-items:center;gap:10px}
-.ch-avatar{width:36px;height:36px;background:linear-gradient(135deg,#C9A84C,#E8C97A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.ch-title{font-size:.88rem;font-weight:600;color:#fff}
-.ch-sub{font-size:.68rem;color:#8A8AA0;margin-top:1px}
-.ch-close{background:none;border:none;color:#8A8AA0;font-size:1.2rem;cursor:pointer;padding:4px;transition:color .2s}
-.ch-close:hover{color:#C9A84C}
-#chatMessages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
-#chatMessages::-webkit-scrollbar{width:4px}
-#chatMessages::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.2);border-radius:2px}
-.msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:.83rem;line-height:1.55;word-break:break-word}
-.msg.bot{background:#1A1E2E;color:#E8E8F0;border:1px solid rgba(201,168,76,0.1);align-self:flex-start;border-radius:4px 12px 12px 12px}
-.msg.user{background:linear-gradient(135deg,#C9A84C,#E8C97A);color:#0A0C14;align-self:flex-end;font-weight:500;border-radius:12px 4px 12px 12px}
-.msg.error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#f87171;align-self:flex-start}
-.typing-dots{display:flex;gap:4px;padding:12px 16px;background:#1A1E2E;border:1px solid rgba(201,168,76,0.1);border-radius:4px 12px 12px 12px;align-self:flex-start;width:fit-content}
-.typing-dots span{width:7px;height:7px;background:#C9A84C;border-radius:50%;animation:dotBounce 1.2s infinite}
-.typing-dots span:nth-child(2){animation-delay:.2s}
-.typing-dots span:nth-child(3){animation-delay:.4s}
-@keyframes dotBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
-#chatSuggestions{padding:0 16px 12px;display:flex;flex-wrap:wrap;gap:6px}
-.sug-chip{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:20px;padding:5px 12px;font-size:.72rem;color:#C9A84C;cursor:pointer;transition:all .2s;white-space:nowrap}
-.sug-chip:hover{background:rgba(201,168,76,0.18);border-color:#C9A84C}
-#chatInputWrap{padding:12px 16px;border-top:1px solid rgba(201,168,76,0.1);display:flex;gap:8px;align-items:center}
-#chatInput{flex:1;background:#1A1E2E;border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:10px 14px;color:#E8E8F0;font-size:.85rem;font-family:'Inter',sans-serif;outline:none;resize:none;transition:border-color .2s}
-#chatInput:focus{border-color:#C9A84C}
-#chatSend{width:38px;height:38px;background:linear-gradient(135deg,#C9A84C,#E8C97A);border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:opacity .2s;flex-shrink:0}
-#chatSend:hover{opacity:.85}
-#chatSend:disabled{opacity:.4;cursor:not-allowed}
-@media(max-width:480px){#chatWindow{width:calc(100vw - 16px);right:8px;bottom:90px;height:70vh}}
-</style>
-
-<button id="chatBtn" class="pulse" onclick="toggleChat()" title="Ask Sri's AI Assistant">💬</button>
-<div id="chatTooltip">Ask Sri's AI Assistant</div>
-
-<div id="chatWindow">
-  <div id="chatHead">
-    <div class="ch-left">
-      <div class="ch-avatar">🤖</div>
-      <div>
-        <div class="ch-title">Sri's AI Assistant</div>
-        <div class="ch-sub">Powered by RAG · n8n · Pinecone</div>
-      </div>
-    </div>
-    <button class="ch-close" onclick="toggleChat()">✕</button>
+<!-- ═══════════════════════════════════════════
+     CHATBOT WIDGET
+═══════════════════════════════════════════ -->
+<!-- Config Panel -->
+<div id="cbConfigPanel">
+  <h4>⚙️ n8n Webhook Config</h4>
+  <p>Paste your n8n RAG webhook URL. The chatbot will POST <code style="color:var(--gold);font-size:.72rem">{"message","sessionId","history"}</code> and expects <code style="color:var(--gold);font-size:.72rem">{"reply":"..."}</code> back.</p>
+  <label class="cfg-label">Webhook URL</label>
+  <input class="cfg-input" id="cbWebhookInput" placeholder="https://your-n8n.com/webhook/xxxxxxxx" type="url"/>
+  <label class="cfg-label">Session ID (auto-generated)</label>
+  <input class="cfg-input" id="cbSessionInput" readonly style="opacity:.6"/>
+  <div class="cfg-row">
+    <button class="cfg-btn cfg-save" onclick="cbSaveConfig()">Save & Connect</button>
+    <button class="cfg-btn cfg-cancel" onclick="cbToggleConfig()">Cancel</button>
   </div>
-  <div id="chatMessages"></div>
-  <div id="chatSuggestions"></div>
-  <div id="chatInputWrap">
-    <input id="chatInput" type="text" placeholder="Type your question…" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat()}"/>
-    <button id="chatSend" onclick="sendChat()">➤</button>
+  <div class="cfg-status" id="cbCfgStatus"></div>
+</div>
+
+<!-- Bubble -->
+<button id="chatBubble" onclick="cbToggleChat()" aria-label="Chat with Sridevi's assistant">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+  <span class="cb-close">✕</span>
+  <div id="cbUnread">1</div>
+</button>
+
+<!-- Chat Window -->
+<div id="chatWindow">
+  <div class="cb-header">
+    <div class="cb-avatar">🤖</div>
+    <div class="cb-header-info">
+      <h4>Sridevi's Assistant</h4>
+      <p><span class="cb-status"></span>Online · ZenithWorks.AI</p>
+    </div>
+    <div class="cb-actions">
+      <button class="cb-hbtn" onclick="cbClearChat()" title="Clear chat">🗑️</button>
+      <button class="cb-hbtn" onclick="cbToggleConfig()" title="n8n Webhook Settings">⚙️</button>
+    </div>
+  </div>
+  <div id="cbMessages"></div>
+  <div class="cb-input-wrap">
+    <textarea id="cbInput" rows="1" placeholder="Ask me anything…" onkeydown="cbHandleKey(event)" oninput="cbAutoResize(this)"></textarea>
+    <button id="cbSendBtn" onclick="cbSend()" title="Send">
+      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </button>
   </div>
 </div>
 
 <script>
-const WEBHOOK='https://n8n.sricdpworkflows.site/webhook/6b29c6c2-278c-484f-926d-4a283dffc1a4';
-const SUGGESTIONS=['Who is Sridevi Edupuganti and what makes her unique?','What awards and recognitions has Sridevi received?','What is a RAG Pipeline and how can it help my business?','How can n8n automation reduce my team\'s manual work?','What does an AI Consulting session with Sridevi cover?'];
-let chatOpen=false,chatReady=true;
-const sessionId='sess-'+Math.random().toString(36).slice(2,10);
-function toggleChat(){chatOpen=!chatOpen;const w=document.getElementById('chatWindow'),b=document.getElementById('chatBtn');w.classList.toggle('open',chatOpen);b.textContent=chatOpen?'✕':'💬';b.classList.toggle('pulse',!chatOpen);if(chatOpen&&document.getElementById('chatMessages').children.length===0)initChat();}
-function initChat(){addBotMsg('👋 Hi! I\'m Sri\'s AI Assistant. I can answer questions about Sridevi\'s professional background, services, and AI consulting topics. How can I help you today?');renderSuggestions();}
-function renderSuggestions(){const el=document.getElementById('chatSuggestions');el.innerHTML='';SUGGESTIONS.forEach(q=>{const c=document.createElement('button');c.className='sug-chip';c.textContent=q.length>45?q.slice(0,45)+'…':q;c.title=q;c.onclick=()=>{hideSuggestions();sendChatMsg(q);};el.appendChild(c);});}
-function hideSuggestions(){document.getElementById('chatSuggestions').innerHTML='';}
-function addBotMsg(t){const m=document.getElementById('chatMessages'),d=document.createElement('div');d.className='msg bot';d.textContent=t;m.appendChild(d);m.scrollTop=m.scrollHeight;}
-function addUserMsg(t){const m=document.getElementById('chatMessages'),d=document.createElement('div');d.className='msg user';d.textContent=t;m.appendChild(d);m.scrollTop=m.scrollHeight;}
-function showTyping(){const m=document.getElementById('chatMessages'),d=document.createElement('div');d.className='typing-dots';d.id='typingIndicator';d.innerHTML='<span></span><span></span><span></span>';m.appendChild(d);m.scrollTop=m.scrollHeight;}
-function hideTyping(){const t=document.getElementById('typingIndicator');if(t)t.remove();}
-async function sendChat(){const i=document.getElementById('chatInput'),msg=i.value.trim();if(!msg||!chatReady)return;i.value='';sendChatMsg(msg);}
-async function sendChatMsg(msg){if(!chatReady)return;hideSuggestions();addUserMsg(msg);chatReady=false;document.getElementById('chatSend').disabled=true;showTyping();try{const res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:{text:msg},sessionId})});hideTyping();if(!res.ok)throw new Error('error');const data=await res.json();addBotMsg(data.message||data.output||data.text||'I received your question but couldn\'t generate a response. Please try again.');}catch(e){hideTyping();addBotMsg('⚠️ I\'m having trouble connecting right now. Please try again or email esridevi999@gmail.com');}finally{chatReady=true;document.getElementById('chatSend').disabled=false;document.getElementById('chatInput').focus();}}
+// ── CHATBOT STATE ──────────────────────────────────────────
+let cbWebhook   = 'https://n8n.sricdpworkflows.site/webhook/6b29c6c2-278c-484f-926d-4a283dffc1a4';
+let cbSession   = localStorage.getItem('cb_session')  || 'sess_' + Math.random().toString(36).slice(2,10);
+let cbOpen      = false;
+let cbLoading   = false;
+let cbHistory   = [];
+localStorage.setItem('cb_session', cbSession);
+document.getElementById('cbWebhookInput').value = cbWebhook;
+document.getElementById('cbSessionInput').value  = cbSession;
+
+const CB_QUICK = [
+  "What services does Sridevi offer?",
+  "How much does a session cost?",
+  "Tell me about ZenithWorks.AI",
+  "How do I book a session?",
+  "What certifications does she hold?"
+];
+
+// ── TOGGLE ─────────────────────────────────────────────────
+function cbToggleChat() {
+  cbOpen = !cbOpen;
+  document.getElementById('chatWindow').classList.toggle('cb-open', cbOpen);
+  document.getElementById('chatBubble').classList.toggle('cb-open', cbOpen);
+  document.getElementById('cbUnread').style.display = 'none';
+  if (cbOpen) {
+    document.getElementById('cbConfigPanel').style.display = 'none';
+    setTimeout(() => document.getElementById('cbInput').focus(), 250);
+    cbScrollBottom();
+  }
+}
+
+function cbToggleConfig() {
+  const p = document.getElementById('cbConfigPanel');
+  const showing = p.style.display === 'block';
+  p.style.display = showing ? 'none' : 'block';
+  if (!showing) {
+    document.getElementById('chatWindow').classList.remove('cb-open');
+    document.getElementById('chatBubble').classList.remove('cb-open');
+    cbOpen = false;
+  }
+}
+
+// ── CONFIG ─────────────────────────────────────────────────
+function cbSaveConfig() {
+  const url = document.getElementById('cbWebhookInput').value.trim();
+  const st  = document.getElementById('cbCfgStatus');
+  if (!url || !url.startsWith('http')) {
+    st.textContent = '❌ Please enter a valid URL'; st.className = 'cfg-status err'; return;
+  }
+  cbWebhook = url;
+  localStorage.setItem('n8n_webhook', url);
+  st.textContent = '✅ Webhook saved!'; st.className = 'cfg-status ok';
+  setTimeout(() => { document.getElementById('cbConfigPanel').style.display = 'none'; cbToggleChat(); }, 900);
+}
+
+// ── MESSAGES ───────────────────────────────────────────────
+function cbNow() { return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+
+function cbAddBotMessage(text, quickReplies) {
+  const msgs = document.getElementById('cbMessages');
+  const wrap = document.createElement('div'); wrap.className = 'cb-msg bot';
+  const bub  = document.createElement('div'); bub.className = 'cb-bubble'; bub.textContent = text;
+  const time = document.createElement('div'); time.className = 'cb-time'; time.textContent = cbNow();
+  wrap.appendChild(bub);
+  if (quickReplies?.length) {
+    const qr = document.createElement('div'); qr.className = 'cb-qr';
+    quickReplies.forEach(q => {
+      const btn = document.createElement('button'); btn.className = 'cb-qr-btn';
+      btn.textContent = q;
+      btn.onclick = () => { cbRemoveQuickReplies(); cbSendText(q); };
+      qr.appendChild(btn);
+    });
+    wrap.appendChild(qr);
+  }
+  wrap.appendChild(time);
+  msgs.appendChild(wrap);
+  cbScrollBottom();
+}
+
+function cbAddUserMessage(text) {
+  const msgs = document.getElementById('cbMessages');
+  const wrap = document.createElement('div'); wrap.className = 'cb-msg user';
+  const bub  = document.createElement('div'); bub.className = 'cb-bubble'; bub.textContent = text;
+  const time = document.createElement('div'); time.className = 'cb-time'; time.textContent = cbNow();
+  wrap.appendChild(bub); wrap.appendChild(time);
+  msgs.appendChild(wrap); cbScrollBottom();
+}
+
+function cbShowTyping() {
+  const msgs = document.getElementById('cbMessages');
+  const wrap = document.createElement('div'); wrap.className = 'cb-msg bot'; wrap.id = 'cbTyping';
+  const bub  = document.createElement('div'); bub.className = 'cb-typing';
+  bub.innerHTML = '<span></span><span></span><span></span>';
+  wrap.appendChild(bub); msgs.appendChild(wrap); cbScrollBottom();
+}
+
+function cbHideTyping() { const t = document.getElementById('cbTyping'); if (t) t.remove(); }
+function cbRemoveQuickReplies() { document.querySelectorAll('.cb-qr').forEach(el => el.remove()); }
+function cbScrollBottom() { const m = document.getElementById('cbMessages'); setTimeout(() => m.scrollTop = m.scrollHeight, 50); }
+
+// ── SEND ───────────────────────────────────────────────────
+function cbHandleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); cbSend(); } }
+function cbAutoResize(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 90) + 'px'; }
+
+function cbSend() {
+  const inp = document.getElementById('cbInput');
+  const txt = inp.value.trim(); if (!txt || cbLoading) return;
+  inp.value = ''; inp.style.height = 'auto';
+  cbSendText(txt);
+}
+
+async function cbSendText(text) {
+  cbRemoveQuickReplies();
+  cbAddUserMessage(text);
+  cbHistory.push({ role: 'user', content: text });
+  cbLoading = true;
+  document.getElementById('cbSendBtn').disabled = true;
+  cbShowTyping();
+
+  if (!cbWebhook) {
+    await new Promise(r => setTimeout(r, 800));
+    cbHideTyping();
+    cbAddBotMessage(
+      "⚙️ Webhook not connected yet.\n\nClick the ⚙️ icon above and paste your n8n RAG webhook URL to go live!",
+      ["How do I set this up?", "Contact Sridevi directly"]
+    );
+    cbLoading = false;
+    document.getElementById('cbSendBtn').disabled = false;
+    return;
+  }
+
+  try {
+    const res = await fetch(cbWebhook, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: text,
+        sessionId: cbSession,
+        history: cbHistory.slice(-10)
+      })
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    // Handle all common n8n Respond to Webhook response formats
+    let reply = '';
+    if (typeof data === 'string') {
+      reply = data;
+    } else if (Array.isArray(data)) {
+      reply = data[0]?.output || data[0]?.reply || data[0]?.text || data[0]?.answer || data[0]?.message || JSON.stringify(data[0]);
+    } else {
+      reply = data.output || data.reply || data.text || data.answer || data.message || data.response || JSON.stringify(data);
+    }
+    if (!reply) reply = "I couldn't find an answer for that. Please contact Sridevi at info@srideviedupuganti.com";
+    cbHideTyping();
+    cbHistory.push({ role: 'assistant', content: reply });
+    cbAddBotMessage(reply, cbContextualQuickReplies(text));
+  } catch (err) {
+    cbHideTyping();
+    cbAddBotMessage(
+      `⚠️ Couldn't reach the webhook.\n\nError: ${err.message}\n\nPlease verify your n8n URL in ⚙️ settings.`,
+      ["Try again", "Contact via WhatsApp"]
+    );
+  }
+
+  cbLoading = false;
+  document.getElementById('cbSendBtn').disabled = false;
+}
+
+function cbClearChat() {
+  document.getElementById('cbMessages').innerHTML = '';
+  cbHistory = [];
+  cbSession = 'sess_' + Math.random().toString(36).slice(2,10);
+  localStorage.setItem('cb_session', cbSession);
+  document.getElementById('cbSessionInput').value = cbSession;
+  cbAddBotMessage("🔄 Chat cleared! How can I help you?", CB_QUICK);
+}
+
+function cbContextualQuickReplies(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('book') || m.includes('session') || m.includes('appoint'))
+    return ["What services are available?", "Pricing for AI Consulting", "Contact via WhatsApp"];
+  if (m.includes('price') || m.includes('cost') || m.includes('fee') || m.includes('₹'))
+    return ["Book a session", "AI Workflow Automations pricing", "Career Mentoring pricing"];
+  if (m.includes('service') || m.includes('offer'))
+    return ["AI Agents & RAG Pipelines", "n8n Automations", "Career Guidance"];
+  if (m.includes('certif') || m.includes('education'))
+    return ["Tell me about her experience", "What is ZenithWorks.AI?"];
+  return ["Tell me more", "How do I book?", "Contact Sridevi"];
+}
 </script>
 </body>
 </html>
