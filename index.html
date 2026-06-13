@@ -771,7 +771,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 <script>
 // ── CHATBOT STATE ──────────────────────────────────────────
-let cbWebhook   = 'https://n8n.sricdpworkflows.site/webhook/6b29c6c2-278c-484f-926d-4a283dffc1a4';
+let cbWebhook   = 'https://n8n.sricdpworkflows.site/webhook/6b29c6c2-278c-484f-926d-4a283dffc1a4'; // Production n8n RAG Webhook
 let cbSession   = localStorage.getItem('cb_session')  || 'sess_' + Math.random().toString(36).slice(2,10);
 let cbOpen      = false;
 let cbLoading   = false;
@@ -912,24 +912,42 @@ async function cbSendText(text) {
       })
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    // Handle all common n8n Respond to Webhook response formats
+
+    // Safely read raw text first — never assume JSON
+    const raw = await res.text();
     let reply = '';
-    if (typeof data === 'string') {
-      reply = data;
-    } else if (Array.isArray(data)) {
-      reply = data[0]?.output || data[0]?.reply || data[0]?.text || data[0]?.answer || data[0]?.message || JSON.stringify(data[0]);
+
+    if (!raw || raw.trim() === '') {
+      // n8n returned empty body — workflow may not be active or Respond node has no body set
+      reply = "I received an empty response from the server. Please ensure the n8n workflow is active and the Respond to Webhook node has a response body configured.";
     } else {
-      reply = data.output || data.reply || data.text || data.answer || data.message || data.response || JSON.stringify(data);
+      // Try parsing as JSON
+      try {
+        const data = JSON.parse(raw);
+        if (typeof data === 'string') {
+          reply = data;
+        } else if (Array.isArray(data)) {
+          reply = data[0]?.output || data[0]?.reply || data[0]?.text || data[0]?.answer || data[0]?.message || data[0]?.response || JSON.stringify(data[0]);
+        } else {
+          reply = data.output || data.reply || data.text || data.answer || data.message || data.response || JSON.stringify(data);
+        }
+      } catch {
+        // n8n returned plain text — use as-is
+        reply = raw;
+      }
     }
-    if (!reply) reply = "I couldn't find an answer for that. Please contact Sridevi at info@srideviedupuganti.com";
+
+    if (!reply || reply.trim() === '') {
+      reply = "I couldn't find an answer for that. Please contact Sridevi at info@srideviedupuganti.com";
+    }
+
     cbHideTyping();
     cbHistory.push({ role: 'assistant', content: reply });
     cbAddBotMessage(reply, cbContextualQuickReplies(text));
   } catch (err) {
     cbHideTyping();
     cbAddBotMessage(
-      `⚠️ Couldn't reach the webhook.\n\nError: ${err.message}\n\nPlease verify your n8n URL in ⚙️ settings.`,
+      `Sorry, I'm having trouble connecting right now. Please try again in a moment or reach Sridevi directly.`,
       ["Try again", "Contact via WhatsApp"]
     );
   }
