@@ -906,6 +906,7 @@ async function cbSendText(text) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        query: { text: text },
         message: text,
         sessionId: cbSession,
         history: cbHistory.slice(-10)
@@ -913,29 +914,15 @@ async function cbSendText(text) {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-    // Safely read raw text first — never assume JSON
-    const raw = await res.text();
-    let reply = '';
-
-    if (!raw || raw.trim() === '') {
-      // n8n returned empty body — workflow may not be active or Respond node has no body set
-      reply = "I received an empty response from the server. Please ensure the n8n workflow is active and the Respond to Webhook node has a response body configured.";
-    } else {
-      // Try parsing as JSON
-      try {
-        const data = JSON.parse(raw);
-        if (typeof data === 'string') {
-          reply = data;
-        } else if (Array.isArray(data)) {
-          reply = data[0]?.output || data[0]?.reply || data[0]?.text || data[0]?.answer || data[0]?.message || data[0]?.response || JSON.stringify(data[0]);
-        } else {
-          reply = data.output || data.reply || data.text || data.answer || data.message || data.response || JSON.stringify(data);
-        }
-      } catch {
-        // n8n returned plain text — use as-is
-        reply = raw;
+          // n8n returns { "message": "..." } from Respond to Webhook node
+      let reply = '';
+      if (typeof data === 'string') {
+        reply = data;
+      } else if (Array.isArray(data)) {
+        reply = data[0]?.message || data[0]?.output || data[0]?.reply || data[0]?.text || '';
+      } else {
+        reply = data.message || data.output || data.reply || data.text || data.answer || '';
       }
-    }
 
     if (!reply || reply.trim() === '') {
       reply = "I couldn't find an answer for that. Please contact Sridevi at info@srideviedupuganti.com";
