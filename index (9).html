@@ -888,7 +888,7 @@ function hideTyping(){const t=document.getElementById('typingIndicator');if(t)t.
 async function sendChat(){const i=document.getElementById('chatInput'),msg=i.value.trim();if(!msg||!chatReady)return;i.value='';sendChatMsg(msg);}
 async function sendChatMsg(msg){if(!chatReady)return;hideSuggestions();addUserMsg(msg);chatReady=false;document.getElementById('chatSend').disabled=true;showTyping();try{const res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:{text:msg},sessionId})});hideTyping();if(!res.ok)throw new Error('error');const data=await res.json();addBotMsg(data.message||data.output||data.text||'I received your question but couldn\'t generate a response. Please try again.');}catch(e){hideTyping();addBotMsg('⚠️ I\'m having trouble connecting right now. Please try again or email esridevi999@gmail.com');}finally{chatReady=true;document.getElementById('chatSend').disabled=false;document.getElementById('chatInput').focus();}}
 </script>
-   <script>
+<script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="d8aLqHjHHw33bssAHHxIn";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 </body>
